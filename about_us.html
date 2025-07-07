@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about FileToolsPro - our mission, team, and commitment to providing free, secure online tools for image and PDF processing.">
+    <meta name="keywords" content="about FileToolsPro, our story, file tools mission, online tools company, image PDF tools about">
+    <meta name="author" content="FileToolsPro">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="About FileToolsPro | Free Online Image & PDF Tools">
+    <meta property="og:description" content="Learn about our mission to provide free, secure online tools for image and PDF processing.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://filetoolspro.com/about.html">
+    <meta property="og:image" content="https://filetoolspro.com/images/about-preview.jpg">
+    <link rel="canonical" href="https://filetoolspro.com/about.html">
+    <title>About FileToolsPro | Free Online Image & PDF Tools</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a6bff;
+            --secondary-color: #6c5ce7;
+            --accent-color: #00cec9;
+            --light-color: #f8f9fa;
+            --dark-color: #2d3436;
+            --gray-color: #636e72;
+            --light-gray: #dfe6e9;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --border-radius: 10px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        .logo-text span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .about-hero {
+            padding: 100px 0 60px;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .about-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* About Content Section */
+        .about-content {
+            padding: 60px 0;
+        }
+
+        .about-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .about-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .about-text p {
+            color: var(--gray-color);
+            margin-bottom: 15px;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .member-photo {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 20px;
+        }
+
+        .member-info h3 {
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+
+        .member-info p.position {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .member-info p.bio {
+            color: var(--gray-color);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            color: var(--dark-color);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 60px 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .value-card p {
+            color: var(--gray-color);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: var(--primary-color);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+
+        .footer-logo-icon {
+            font-size: 1.8rem;
+            color: white;
+            margin-right: 10px;
+        }
+
+        .footer-logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .footer-logo-text span {
+            color: var(--accent-color);
+        }
+
+        .footer-about p {
+            color: #b2bec3;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #b2bec3;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .footer-newsletter p {
+            color: #b2bec3;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-btn {
+            padding: 0 15px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background: #00b5ad;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b2bec3;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about-hero p {
+                font-size: 1rem;
+            }
+            
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .about-hero {
+                padding: 80px 0 40px;
+            }
+            
+            .about-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            /* Add to your existing CSS */
+.adsbygoogle {
+    margin: 20px auto;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.native-ad-container {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-YOUR_PUBLISHER_ID",
+            enable_page_level_ads: true
+        });
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-tools logo-icon"></i>
+                <span class="logo-text">File<span>Tools</span>Pro</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+             <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="img_tools.html">Image Tools</a></li>
+                    <li><a href="pdf_tools.html">PDF Tools</a></li>
+                    <li><a href="about_us.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>About FileToolsPro</h1>
+            <p>Empowering users with free, secure, and easy-to-use online tools for all their file processing needs since 2020.</p>
+        </div>
+    </section>
+<div class="container" style="margin: 20px auto; text-align: center;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-app-pub-3427739408542708/9208278701"
+         data-ad-slot="YOUR_BANNER_AD_SLOT_ID"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+    <!-- About Content Section -->
+    <section class="about-content">
+        <div class="container">
+            <div class="about-section">
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/600x400" alt="FileToolsPro team working" loading="lazy">
+                </div>
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>FileToolsPro was founded in 2020 with a simple mission: to provide high-quality, free online tools that make working with images and PDFs easier for everyone.</p>
+                    <p>What started as a small collection of basic tools has grown into a comprehensive platform serving millions of users worldwide. Our team of developers and designers is committed to continuously improving and expanding our toolset.</p>
+                    <p>We believe that powerful file processing tools should be accessible to everyone, regardless of technical skill or budget. That's why all our core tools remain completely free to use.</p>
+                </div>
+            </div>
+            
+            <div class="about-section">
+                <div class="about-text">
+                    <h2>Our Technology</h2>
+                    <p>All FileToolsPro tools are built using modern web technologies that process files directly in your browser. This approach provides several key benefits:</p>
+                    <p>Your files never leave your computer, ensuring complete privacy and security. Processing happens instantly without waiting for uploads to servers. And there's no software to install - everything works right in your web browser.</p>
+                    <p>We use advanced algorithms to ensure the highest quality results while maintaining fast processing speeds. Our tools are regularly updated to support the latest file formats and standards.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/600x400" alt="FileToolsPro technology" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+   
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Core Values</h2>
+                <p>The principles that guide everything we do at FileToolsPro</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-lock value-icon"></i>
+                    <h3>Privacy First</h3>
+                    <p>Your files never leave your device. We don't store or access your documents after processing is complete.</p>
+                </div>
+                
+                <div class="value-card">
+                    <i class="fas fa-heart value-icon"></i>
+                    <h3>Free Access</h3>
+                    <p>We believe essential tools should be available to everyone without cost barriers or watermarks.</p>
+                </div>
+                
+                <div class="value-card">
+                    <i class="fas fa-bolt value-icon"></i>
+                    <h3>Speed & Efficiency</h3>
+                    <p>Our tools are optimized for fast processing without compromising on quality or results.</p>
+                </div>
+                
+                <div class="value-card">
+                    <i class="fas fa-lightbulb value-icon"></i>
+                    <h3>Continuous Innovation</h3>
+                    <p>We're constantly improving our tools and adding new features based on user feedback.</p>
+                </div>
+                
+                <div class="value-card">
+                    <i class="fas fa-globe value-icon"></i>
+                    <h3>Accessibility</h3>
+                    <p>Our tools are designed to be easy to use for people of all technical skill levels.</p>
+                </div>
+                
+                <div class="value-card">
+                    <i class="fas fa-users value-icon"></i>
+                    <h3>User-Centric</h3>
+                    <p>Every decision we make is guided by what's best for our users and their needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Add this where you want the native ad to appear -->
+<div class="native-ad-container" style="margin: 30px auto; max-width: 600px;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-fb+5w+4e-db+86"
+         data-ad-client="ca-app-pub-3427739408542708/8095627141"
+         data-ad-slot="YOUR_NATIVE_AD_SLOT_ID"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Try Our Tools?</h2>
+            <p>Join millions of users who trust FileToolsPro for their image and PDF processing needs.</p>
+            <a href="image-tools.html" class="cta-btn">Explore All Tools</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-tools footer-logo-icon"></i>
+                        <span class="footer-logo-text">File<span>Tools</span>Pro</span>
+                    </a>
+                    <p>Providing free, fast and secure online tools for all your file conversion and optimization needs.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="img_tools.html">Image Tools</a></li>
+                        <li><a href="pdf_tools.html">PDF Tools</a></li>
+                        <li><a href="about_us.html">About Us</a></li>
+                       
+                    </ul>
+                </div>
+                
+              
+            </div>
+            <div class="footer-bottom">
+    <div style="margin: 20px auto; text-align: center;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-app-pub-3427739408542708/5958217262"
+             data-ad-slot="YOUR_BANNER_AD_SLOT_ID"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    <p>&copy; <span id="currentYear"></span> FileToolsPro. All rights reserved.</p>
+</div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> FileToolsPro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Highlight current page in navigation
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const navLinks = document.querySelectorAll('nav ul li a');
+        
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

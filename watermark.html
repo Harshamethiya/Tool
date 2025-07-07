@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online tool to add text or image watermarks to your photos. Protect your images with customizable watermarks in seconds.">
+    <meta name="keywords" content="watermark tool, add watermark to photo, image watermark, text watermark, protect photos, copyright images">
+    <meta name="author" content="FileToolsPro">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Watermark Tool | Add Watermarks to Photos | FileToolsPro">
+    <meta property="og:description" content="Protect your photos by adding text or image watermarks. Free online tool with no installation required.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://filetoolspro.com/watermark_tool.html">
+    <meta property="og:image" content="https://filetoolspro.com/images/watermark-tool-preview.jpg">
+    <link rel="canonical" href="https://filetoolspro.com/watermark_tool.html">
+    <title>Watermark Tool | Add Text or Image Watermarks to Photos | FileToolsPro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a6bff;
+            --secondary-color: #6c5ce7;
+            --accent-color: #00cec9;
+            --light-color: #f8f9fa;
+            --dark-color: #2d3436;
+            --gray-color: #636e72;
+            --light-gray: #dfe6e9;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --border-radius: 10px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        .logo-text span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        /* Tool Container */
+        .tool-container {
+            padding: 60px 0;
+        }
+
+        .tool-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tool-header h1 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .tool-header p {
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Tool Content */
+        .tool-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .tool-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .upload-section {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+        }
+
+        .preview-section {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .upload-area {
+            border: 2px dashed var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 20px;
+        }
+
+        .upload-area:hover {
+            border-color: var(--primary-color);
+            background: rgba(74, 107, 255, 0.05);
+        }
+
+        .upload-area i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .upload-area h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .upload-area p {
+            color: var(--gray-color);
+            margin-bottom: 15px;
+        }
+
+        .upload-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .upload-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .image-preview {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            overflow: hidden;
+            position: relative;
+            min-height: 300px;
+            background-color: #f5f5f5;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .image-preview-placeholder {
+            color: var(--gray-color);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .watermark-controls {
+            margin-top: 20px;
+        }
+
+        .control-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--light-gray);
+            margin-bottom: 20px;
+        }
+
+        .control-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .control-tab.active {
+            border-bottom-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .control-content {
+            display: none;
+        }
+
+        .control-content.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .color-picker {
+            display: flex;
+            align-items: center;
+        }
+
+        .color-picker input {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .color-picker-preview {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid var(--light-gray);
+        }
+
+        .range-slider {
+            width: 100%;
+        }
+
+        .range-slider-value {
+            text-align: right;
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+        }
+
+        .btn-secondary {
+            background: var(--light-gray);
+            color: var(--dark-color);
+        }
+
+        .btn-secondary:hover {
+            background: #d1d8dd;
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Ad Container */
+        .ad-container {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad-container p {
+            color: var(--gray-color);
+            margin-bottom: 0;
+        }
+
+        /* How to Use Section */
+        .how-to-use {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .how-to-use h2 {
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .steps {
+            display: grid;
+            gap: 20px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: var(--primary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+
+        .step-content h3 {
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+
+        .step-content p {
+            color: var(--gray-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+
+        .footer-logo-icon {
+            font-size: 1.8rem;
+            color: white;
+            margin-right: 10px;
+        }
+
+        .footer-logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .footer-logo-text span {
+            color: var(--accent-color);
+        }
+
+        .footer-about p {
+            color: #b2bec3;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #b2bec3;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .footer-newsletter p {
+            color: #b2bec3;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-btn {
+            padding: 0 15px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background: #00b5ad;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b2bec3;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .tool-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .tool-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .upload-area {
+                padding: 30px 15px;
+            }
+            
+            .upload-section, .preview-section {
+                padding: 20px;
+            }
+            
+            .how-to-use {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-tools logo-icon"></i>
+                <span class="logo-text">File<span>Tools</span>Pro</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="img_tools.html">Image Tools</a></li>
+                    <li><a href="pdf_tools.html">PDF Tools</a></li>
+                   
+                    <li><a href="about_us.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Tool Section -->
+    <section class="tool-container">
+        <div class="container">
+            <div class="tool-header">
+                <h1>Watermark Tool</h1>
+                <p>Protect your photos by adding text or image watermarks. Customize the appearance and position of your watermark to suit your needs.</p>
+            </div>
+
+            <!-- Ad Container (Top) -->
+            <div class="ad-container">
+                <!-- Google AdSense Ad Unit -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID" crossorigin="anonymous"></script>
+                <!-- Watermark Tool Top Ad -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-app-pub-3427739408542708/9208278701"
+                     data-ad-slot="YOUR_AD_SLOT_ID"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <div class="tool-content">
+                <div class="upload-section">
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-image"></i>
+                        <h3>Select Your Image</h3>
+                        <p>Supported formats: JPG, PNG, GIF, WEBP</p>
+                        <p>Max file size: 10MB</p>
+                        <button class="upload-btn" id="selectImageBtn">Select Image</button>
+                        <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                    </div>
+
+                    <div class="watermark-controls">
+                        <div class="control-tabs">
+                            <div class="control-tab active" data-tab="text">Text Watermark</div>
+                            <div class="control-tab" data-tab="image">Image Watermark</div>
+                        </div>
+
+                        <div class="control-content active" id="textWatermarkControls">
+                            <div class="form-group">
+                                <label for="watermarkText">Watermark Text</label>
+                                <input type="text" id="watermarkText" class="form-control" placeholder="Enter your watermark text" value="FileToolsPro">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="textColor">Text Color</label>
+                                <div class="color-picker">
+                                    <input type="color" id="textColor" class="form-control" value="#FFFFFF">
+                                    <div class="color-picker-preview" id="textColorPreview" style="background-color: #FFFFFF;"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="textOpacity">Opacity</label>
+                                <input type="range" id="textOpacity" class="range-slider" min="0" max="100" value="70">
+                                <div class="range-slider-value"><span id="textOpacityValue">70</span>%</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="textSize">Text Size</label>
+                                <input type="range" id="textSize" class="range-slider" min="10" max="100" value="30">
+                                <div class="range-slider-value"><span id="textSizeValue">30</span>px</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="textFont">Font Family</label>
+                                <select id="textFont" class="form-control">
+                                    <option value="Arial">Arial</option>
+                                    <option value="Verdana">Verdana</option>
+                                    <option value="Helvetica">Helvetica</option>
+                                    <option value="Times New Roman">Times New Roman</option>
+                                    <option value="Courier New">Courier New</option>
+                                    <option value="Georgia">Georgia</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="textPosition">Position</label>
+                                <select id="textPosition" class="form-control">
+                                    <option value="center">Center</option>
+                                    <option value="top-left">Top Left</option>
+                                    <option value="top-right">Top Right</option>
+                                    <option value="bottom-left">Bottom Left</option>
+                                    <option value="bottom-right">Bottom Right</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="textRotation">Rotation</label>
+                                <input type="range" id="textRotation" class="range-slider" min="0" max="360" value="0">
+                                <div class="range-slider-value"><span id="textRotationValue">0</span>°</div>
+                            </div>
+                        </div>
+
+                        <div class="control-content" id="imageWatermarkControls">
+                            <div class="upload-area" id="watermarkImageArea" style="margin-bottom: 20px;">
+                                <i class="fas fa-image"></i>
+                                <h3>Select Watermark Image</h3>
+                                <p>Supported formats: PNG (transparent background recommended)</p>
+                                <button class="upload-btn" id="selectWatermarkBtn">Select Image</button>
+                                <input type="file" id="watermarkImageInput" accept="image/*" style="display: none;">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="imageOpacity">Opacity</label>
+                                <input type="range" id="imageOpacity" class="range-slider" min="0" max="100" value="50">
+                                <div class="range-slider-value"><span id="imageOpacityValue">50</span>%</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="imageSize">Size</label>
+                                <input type="range" id="imageSize" class="range-slider" min="5" max="100" value="30">
+                                <div class="range-slider-value"><span id="imageSizeValue">30</span>% of original</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="imagePosition">Position</label>
+                                <select id="imagePosition" class="form-control">
+                                    <option value="center">Center</option>
+                                    <option value="top-left">Top Left</option>
+                                    <option value="top-right">Top Right</option>
+                                    <option value="bottom-left">Bottom Left</option>
+                                    <option value="bottom-right">Bottom Right</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="imageRotation">Rotation</label>
+                                <input type="range" id="imageRotation" class="range-slider" min="0" max="360" value="0">
+                                <div class="range-slider-value"><span id="imageRotationValue">0</span>°</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preview-section">
+                    <div class="image-preview" id="imagePreview">
+                        <div class="image-preview-placeholder">
+                            <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 15px; color: var(--light-gray);"></i>
+                            <p>Your watermarked image will appear here</p>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" id="applyWatermarkBtn" disabled>Apply Watermark</button>
+                        <button class="btn btn-secondary" id="downloadBtn" disabled>Download Image</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Container (Middle) -->
+            <div class="ad-container">
+                <!-- Google AdSense Ad Unit -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-app-pub-3427739408542708/8095627141"
+                     data-ad-slot="YOUR_AD_SLOT_ID"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <div class="how-to-use">
+                <h2>How to Add Watermarks to Your Photos</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Upload Your Image</h3>
+                            <p>Click the "Select Image" button to choose the photo you want to watermark from your device.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Choose Watermark Type</h3>
+                            <p>Select between text or image watermark using the tabs. For text watermarks, enter your text and customize its appearance. For image watermarks, upload your logo or watermark image.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Customize Your Watermark</h3>
+                            <p>Adjust the position, size, opacity, rotation, and other settings to create the perfect watermark for your needs.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Apply and Download</h3>
+                            <p>Click "Apply Watermark" to see the result, then "Download Image" to save your watermarked photo to your device.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Container (Bottom) -->
+            <div class="ad-container">
+                <!-- Google AdSense Ad Unit -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-app-pub-3427739408542708/9208278701"
+                     data-ad-slot="YOUR_AD_SLOT_ID"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-tools footer-logo-icon"></i>
+                        <span class="footer-logo-text">File<span>Tools</span>Pro</span>
+                    </a>
+                    <p>Providing free, fast and secure online tools for all your file conversion and optimization needs.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="img_tools.html">Image Tools</a></li>
+                        <li><a href="pdf_tools.html">PDF Tools</a></li>
+                        <li><a href="about_us.html">About Us</a></li>
+                       
+                    </ul>
+                </div>
+                
+              
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> FileToolsPro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showInterstitialAd() {
+    // This would typically be called when navigating between pages
+    // or when completing an action like file conversion
+    if(typeof google !== 'undefined' && google.ads && google.ads.interstitial) {
+        const interstitial = new google.ads.interstitial.InterstitialAd();
+        interstitial.load({
+            adUnitPath: '/3427739408542708/3753923427',
+            request: {
+                adSizes: [{width: 300, height: 250}]
+            }
+        }).then(() => {
+            interstitial.show();
+        });
+    } else {
+        console.log('Interstitial ad not available');
+    }
+}
+
+// Example: Show interstitial when leaving a tool page
+document.querySelectorAll('.tool-link, .category-btn').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        showInterstitialAd();
+        // After ad is shown (or if not available), proceed to link
+        setTimeout(() => {
+            window.location.href = this.href;
+        }, 1000);
+    });
+});
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Watermark Tool Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const selectImageBtn = document.getElementById('selectImageBtn');
+            const imageInput = document.getElementById('imageInput');
+            const uploadArea = document.getElementById('uploadArea');
+            const imagePreview = document.getElementById('imagePreview');
+            const applyWatermarkBtn = document.getElementById('applyWatermarkBtn');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const selectWatermarkBtn = document.getElementById('selectWatermarkBtn');
+            const watermarkImageInput = document.getElementById('watermarkImageInput');
+            const watermarkImageArea = document.getElementById('watermarkImageArea');
+            
+            // Tab controls
+            const controlTabs = document.querySelectorAll('.control-tab');
+            const controlContents = document.querySelectorAll('.control-content');
+            
+            // Text watermark controls
+            const watermarkText = document.getElementById('watermarkText');
+            const textColor = document.getElementById('textColor');
+            const textColorPreview = document.getElementById('textColorPreview');
+            const textOpacity = document.getElementById('textOpacity');
+            const textOpacityValue = document.getElementById('textOpacityValue');
+            const textSize = document.getElementById('textSize');
+            const textSizeValue = document.getElementById('textSizeValue');
+            const textFont = document.getElementById('textFont');
+            const textPosition = document.getElementById('textPosition');
+            const textRotation = document.getElementById('textRotation');
+            const textRotationValue = document.getElementById('textRotationValue');
+            
+            // Image watermark controls
+            const imageOpacity = document.getElementById('imageOpacity');
+            const imageOpacityValue = document.getElementById('imageOpacityValue');
+            const imageSize = document.getElementById('imageSize');
+            const imageSizeValue = document.getElementById('imageSizeValue');
+            const imagePosition = document.getElementById('imagePosition');
+            const imageRotation = document.getElementById('imageRotation');
+            const imageRotationValue = document.getElementById('imageRotationValue');
+            
+            // Variables to store images
+            let originalImage = null;
+            let watermarkImage = null;
+            let watermarkedImage = null;
+            let activeTab = 'text';
+            
+            // Event Listeners
+            selectImageBtn.addEventListener('click', function() {
+                imageInput.click();
+            });
+            
+            imageInput.addEventListener('change', function(e) {
+                if (e.target.files.length > 0) {
+                    loadImage(e.target.files[0], 'original');
+                }
+            });
+            
+            selectWatermarkBtn.addEventListener('click', function() {
+                watermarkImageInput.click();
+            });
+            
+            watermarkImageInput.addEventListener('change', function(e) {
+                if (e.target.files.length > 0) {
+                    loadImage(e.target.files[0], 'watermark');
+                }
+            });
+            
+            // Tab switching
+            controlTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    activeTab = tabId;
+                    
+                    // Update active tab
+                    controlTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Update active content
+                    controlContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === `${tabId}WatermarkControls`) {
+                            content.classList.add('active');
+                        }
+                    });
+                });
+            });
+            
+            // Range slider value updates
+            textOpacity.addEventListener('input', function() {
+                textOpacityValue.textContent = this.value;
+            });
+            
+            textSize.addEventListener('input', function() {
+                textSizeValue.textContent = this.value;
+            });
+            
+            textRotation.addEventListener('input', function() {
+                textRotationValue.textContent = this.value;
+            });
+            
+            imageOpacity.addEventListener('input', function() {
+                imageOpacityValue.textContent = this.value;
+            });
+            
+            imageSize.addEventListener('input', function() {
+                imageSizeValue.textContent = this.value;
+            });
+            
+            imageRotation.addEventListener('input', function() {
+                imageRotationValue.textContent = this.value;
+            });
+            
+            // Color picker preview
+            textColor.addEventListener('input', function() {
+                textColorPreview.style.backgroundColor = this.value;
+            });
+            
+            // Apply watermark button
+            applyWatermarkBtn.addEventListener('click', function() {
+                if (originalImage) {
+                    watermarkedImage = applyWatermark(originalImage);
+                    displayImage(watermarkedImage);
+                    downloadBtn.disabled = false;
+                }
+            });
+            
+            // Download button
+            downloadBtn.addEventListener('click', function() {
+                if (watermarkedImage) {
+                    downloadImage(watermarkedImage);
+                }
+            });
+            
+            // Drag and drop for main image
+            uploadArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                uploadArea.style.borderColor = 'var(--primary-color)';
+                uploadArea.style.backgroundColor = 'rgba(74, 107, 255, 0.05)';
+            });
+            
+            uploadArea.addEventListener('dragleave', function() {
+                uploadArea.style.borderColor = 'var(--light-gray)';
+                uploadArea.style.backgroundColor = '';
+            });
+            
+            uploadArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                uploadArea.style.borderColor = 'var(--light-gray)';
+                uploadArea.style.backgroundColor = '';
+                
+                if (e.dataTransfer.files.length > 0) {
+                    loadImage(e.dataTransfer.files[0], 'original');
+                }
+            });
+            
+            // Drag and drop for watermark image
+            watermarkImageArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                watermarkImageArea.style.borderColor = 'var(--primary-color)';
+                watermarkImageArea.style.backgroundColor = 'rgba(74, 107, 255, 0.05)';
+            });
+            
+            watermarkImageArea.addEventListener('dragleave', function() {
+                watermarkImageArea.style.borderColor = 'var(--light-gray)';
+                watermarkImageArea.style.backgroundColor = '';
+            });
+            
+            watermarkImageArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                watermarkImageArea.style.borderColor = 'var(--light-gray)';
+                watermarkImageArea.style.backgroundColor = '';
+                
+                if (e.dataTransfer.files.length > 0) {
+                    loadImage(e.dataTransfer.files[0], 'watermark');
+                }
+            });
+            
+            // Functions
+            function loadImage(file, type) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.onload = function() {
+                        if (type === 'original') {
+                            originalImage = img;
+                            displayImage(originalImage);
+                            applyWatermarkBtn.disabled = false;
+                        } else if (type === 'watermark') {
+                            watermarkImage = img;
+                        }
+                    };
+                    img.src = e.target.result;
+                };
+                
+                reader.readAsDataURL(file);
+            }
+            
+            function displayImage(img) {
+                imagePreview.innerHTML = '';
+                const imgElement = document.createElement('img');
+                imgElement.src = img.src;
+                imagePreview.appendChild(imgElement);
+            }
+            
+            function applyWatermark(sourceImage) {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                // Set canvas dimensions to match source image
+                canvas.width = sourceImage.width;
+                canvas.height = sourceImage.height;
+                
+                // Draw the original image
+                ctx.drawImage(sourceImage, 0, 0);
+                
+                if (activeTab === 'text') {
+                    // Apply text watermark
+                    applyTextWatermark(ctx, canvas.width, canvas.height);
+                } else if (activeTab === 'image' && watermarkImage) {
+                    // Apply image watermark
+                    applyImageWatermark(ctx, canvas.width, canvas.height);
+                }
+                
+                // Create new image from canvas
+                const watermarkedImg = new Image();
+                watermarkedImg.src = canvas.toDataURL('image/png');
+                return watermarkedImg;
+            }
+            
+            function applyTextWatermark(ctx, imgWidth, imgHeight) {
+                const text = watermarkText.value || 'FileToolsPro';
+                const color = textColor.value;
+                const opacity = parseInt(textOpacity.value) / 100;
+                const size = parseInt(textSize.value);
+                const font = textFont.value;
+                const rotation = parseInt(textRotation.value);
+                
+                ctx.font = `${size}px ${font}`;
+                ctx.fillStyle = color;
+                ctx.globalAlpha = opacity;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                
+                // Calculate position based on selection
+                let x, y;
+                switch (textPosition.value) {
+                    case 'top-left':
+                        x = imgWidth * 0.2;
+                        y = imgHeight * 0.2;
+                        break;
+                    case 'top-right':
+                        x = imgWidth * 0.8;
+                        y = imgHeight * 0.2;
+                        break;
+                    case 'bottom-left':
+                        x = imgWidth * 0.2;
+                        y = imgHeight * 0.8;
+                        break;
+                    case 'bottom-right':
+                        x = imgWidth * 0.8;
+                        y = imgHeight * 0.8;
+                        break;
+                    default: // center
+                        x = imgWidth / 2;
+                        y = imgHeight / 2;
+                }
+                
+                // Save the context state, rotate, draw text, then restore
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(rotation * Math.PI / 180);
+                ctx.fillText(text, 0, 0);
+                ctx.restore();
+            }
+            
+            function applyImageWatermark(ctx, imgWidth, imgHeight) {
+                const opacity = parseInt(imageOpacity.value) / 100;
+                const size = parseInt(imageSize.value) / 100;
+                const rotation = parseInt(imageRotation.value);
+                
+                // Calculate watermark dimensions
+                const watermarkWidth = watermarkImage.width * size;
+                const watermarkHeight = watermarkImage.height * size;
+                
+                // Calculate position based on selection
+                let x, y;
+                switch (imagePosition.value) {
+                    case 'top-left':
+                        x = imgWidth * 0.1;
+                        y = imgHeight * 0.1;
+                        break;
+                    case 'top-right':
+                        x = imgWidth - (watermarkWidth + imgWidth * 0.1);
+                        y = imgHeight * 0.1;
+                        break;
+                    case 'bottom-left':
+                        x = imgWidth * 0.1;
+                        y = imgHeight - (watermarkHeight + imgHeight * 0.1);
+                        break;
+                    case 'bottom-right':
+                        x = imgWidth - (watermarkWidth + imgWidth * 0.1);
+                        y = imgHeight - (watermarkHeight + imgHeight * 0.1);
+                        break;
+                    default: // center
+                        x = (imgWidth - watermarkWidth) / 2;
+                        y = (imgHeight - watermarkHeight) / 2;
+                }
+                
+                // Save the context state, rotate, draw image, then restore
+                ctx.save();
+                ctx.globalAlpha = opacity;
+                ctx.translate(x + watermarkWidth / 2, y + watermarkHeight / 2);
+                ctx.rotate(rotation * Math.PI / 180);
+                ctx.drawImage(
+                    watermarkImage,
+                    -watermarkWidth / 2,
+                    -watermarkHeight / 2,
+                    watermarkWidth,
+                    watermarkHeight
+                );
+                ctx.restore();
+            }
+            
+            function downloadImage(img) {
+                const link = document.createElement('a');
+                link.download = 'watermarked-image.png';
+                link.href = img.src;
+                link.click();
+            }
+        });
+    </script>
+</body>
+</html>

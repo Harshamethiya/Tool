@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secure your files with our free online security tools - password protection, encryption, redaction, and digital signatures. 100% private processing.">
+    <meta name="keywords" content="PDF security, file encryption, password protect PDF, unlock PDF, document redaction, metadata removal, digital signature, file protection">
+    <meta name="author" content="FileToolsPro">
+    <meta property="og:title" content="Security Tools | File Protection & Encryption | FileToolsPro">
+    <meta property="og:description" content="Free online tools to password protect, encrypt, and secure your files. All processing happens in your browser.">
+    <link rel="canonical" href="https://filetoolspro.com/security-tools.html">
+    <title>Security Tools | Password Protect, Encrypt & Secure Files | FileToolsPro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a6bff;
+            --secondary-color: #6c5ce7;
+            --accent-color: #00cec9;
+            --security-color: #e74c3c;
+            --light-color: #f8f9fa;
+            --dark-color: #2d3436;
+            --gray-color: #636e72;
+            --light-gray: #dfe6e9;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --border-radius: 10px;
+            --transition: all 0.3s ease;
+        }
+
+        /* Include all CSS from your homepage */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        .logo-text span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        /* Security Tools Specific Styles */
+        .security-hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffebee 100%);
+        }
+
+        .security-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .security-hero p {
+            font-size: 1.2rem;
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .security-tools-section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-card-header.security {
+            background: var(--security-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .tool-icon {
+            font-size: 1.8rem;
+            margin-right: 15px;
+        }
+
+        .tool-card-body {
+            padding: 20px;
+        }
+
+        .tool-card-body h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .tool-card-body p {
+            color: var(--gray-color);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .tool-link.security {
+            display: inline-block;
+            padding: 8px 15px;
+            background: var(--light-gray);
+            color: var(--dark-color);
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .tool-link.security:hover {
+            background: var(--security-color);
+            color: white;
+        }
+
+        /* Features Section */
+        .security-features {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon.security {
+            font-size: 2.5rem;
+            color: var(--security-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .feature-card p {
+            color: var(--gray-color);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .security-cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--security-color) 0%, #c0392b 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .security-cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .security-cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .cta-btn.security {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: var(--security-color);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-btn.security:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Footer (same as homepage) */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+
+        .footer-logo-icon {
+            font-size: 1.8rem;
+            color: white;
+            margin-right: 10px;
+        }
+
+        .footer-logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .footer-logo-text span {
+            color: var(--accent-color);
+        }
+
+        .footer-about p {
+            color: #b2bec3;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #b2bec3;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .footer-newsletter p {
+            color: #b2bec3;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-btn {
+            padding: 0 15px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background: #00b5ad;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b2bec3;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .security-hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .security-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .security-hero p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .security-hero {
+                padding: 60px 0 30px;
+            }
+            
+            .security-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .security-cta h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-tools logo-icon"></i>
+                <span class="logo-text">File<span>Tools</span>Pro</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="image-tools.html">Image Tools</a></li>
+                    <li><a href="pdf-tools.html">PDF Tools</a></li>
+                    <li><a href="security-tools.html" class="active">Security Tools</a></li>
+                    <li><a href="conversion-tools.html">Conversion Tools</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="security-hero">
+        <div class="container">
+            <h1>Secure Your Files</h1>
+            <p>Protect your sensitive documents with our free online security tools. All processing happens in your browser for maximum privacy.</p>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="security-tools-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Security Tools</h2>
+                <p>Keep your files safe with our collection of security tools</p>
+            </div>
+            
+            <div class="tools-grid">
+                <!-- File Protection Tools -->
+                <div class="tool-card">
+                    <div class="tool-card-header security">
+                        <i class="fas fa-lock tool-icon"></i>
+                        <h3>PDF Password Protect</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <p>Add password protection to your PDF files to restrict access and prevent unauthorized viewing.</p>
+                        <a href="pdf_password_protect.html" class="tool-link security">Use Tool</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-card-header security">
+                        <i class="fas fa-unlock tool-icon"></i>
+                        <h3>PDF Unlocker</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <p>Remove password protection from PDFs (for authorized use only).</p>
+                        <a href="pdf_unlock.html" class="tool-link security">Use Tool</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-card-header security">
+                        <i class="fas fa-key tool-icon"></i>
+                        <h3>PDF Encryption</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <p>Encrypt PDF files with AES-256 encryption for maximum security.</p>
+                        <a href="pdf_encrypt.html" class="tool-link security">Use Tool</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-card-header security">
+                        <i class="fas fa-eye-slash tool-icon"></i>
+                        <h3>Document Redaction</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <p>Permanently remove sensitive information from PDFs (blackout text).</p>
+                        <a href="pdf_redact.html" class="tool-link security">Use Tool</a>
+                    </div>
+                </div>
+                
+                <!-- Privacy Tools -->
+                <div class="tool-card">
+                    <div class="tool-card-header security">
+                        <i class="fas fa-eraser tool-icon"></i>
+                        <h3>Metadata Remover</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <p>Strip metadata (author info, timestamps) from PDFs and images.</p>
+                        <a href="metadata_remove.html" class="tool-link security">Use Tool</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-card-header security">
+                        <i class="fas fa-file-signature tool-icon"></i>
+                        <h3>Digital Signatures</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <p>Add secure digital signatures to your PDF documents.</p>
+                        <a href="pdf_sign.html" class="tool-link security">Use Tool</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-card-header security">
+                        <i class="fas fa-shield-alt tool-icon"></i>
+                        <h3>File Encryptor</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <p>Encrypt any file type with strong AES-256 encryption.</p>
+                        <a href="file_encrypt.html" class="tool-link security">Use Tool</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-card-header security">
+                        <i class="fas fa-trash-alt tool-icon"></i>
+                        <h3>Secure File Shredder</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <p>Permanently delete files with military-grade wiping algorithms.</p>
+                        <a href="file_shredder.html" class="tool-link security">Use Tool</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="security-features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Our Security Tools?</h2>
+                <p>Key benefits that make our security tools stand out</p>
+            </div>
+            
+            <div class="features-container">
+                <div class="feature-card">
+                    <i class="fas fa-user-shield feature-icon security"></i>
+                    <h3>Complete Privacy</h3>
+                    <p>All processing happens in your browser. Your files never leave your computer and we never store them.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-lock feature-icon security"></i>
+                    <h3>Military-Grade Encryption</h3>
+                    <p>We use AES-256 encryption, the same standard used by governments and banks worldwide.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-heart feature-icon security"></i>
+                    <h3>100% Free</h3>
+                    <p>No hidden charges or watermarks. All our security tools are completely free to use.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-bolt feature-icon security"></i>
+                    <h3>Lightning Fast</h3>
+                    <p>Process files quickly without compromising security or quality.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt feature-icon security"></i>
+                    <h3>No Installation</h3>
+                    <p>Works on any device with a web browser - no software to download.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-history feature-icon security"></i>
+                    <h3>No Logs Kept</h3>
+                    <p>We don't track or store any information about your files or activities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="security-cta">
+        <div class="container">
+            <h2>Ready to Secure Your Files?</h2>
+            <p>Join thousands of users who trust FileToolsPro for their document security needs.</p>
+            <a href="#tools" class="cta-btn security">Protect Your Files Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-tools footer-logo-icon"></i>
+                        <span class="footer-logo-text">File<span>Tools</span>Pro</span>
+                    </a>
+                    <p>Providing free, fast and secure online tools for all your file conversion and optimization needs since 2020.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="image-tools.html">Image Tools</a></li>
+                        <li><a href="pdf-tools.html">PDF Tools</a></li>
+                        <li><a href="security-tools.html">Security Tools</a></li>
+                        <li><a href="conversion-tools.html">Conversion Tools</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for updates on new security features.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Your email address">
+                        <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> FileToolsPro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Highlight current page in navigation
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const navLinks = document.querySelectorAll('nav ul li a');
+        
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

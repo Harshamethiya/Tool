@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online OCR tool to extract text from PDFs and images. Convert scanned documents to editable text instantly with FileToolsPro.">
+    <meta name="keywords" content="PDF OCR, image to text, scanned PDF converter, free OCR tool, extract text from PDF, FileToolsPro">
+    <meta name="author" content="FileToolsPro">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Free PDF OCR Tool | Extract Text from Scanned PDFs & Images">
+    <meta property="og:description" content="Extract text from scanned PDFs and images with our free OCR tool from FileToolsPro.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://filetoolspro.com/pdf-ocr">
+    <meta property="og:image" content="https://filetoolspro.com/images/ocr-preview.jpg">
+    <link rel="canonical" href="https://filetoolspro.com/pdf-ocr">
+    
+    <title>Free PDF OCR Tool | Extract Text from Scanned PDFs & Images | FileToolsPro</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #4a6bff;
+            --secondary-color: #6c5ce7;
+            --accent-color: #00cec9;
+            --light-color: #f8f9fa;
+            --dark-color: #2d3436;
+            --gray-color: #636e72;
+            --light-gray: #dfe6e9;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --border-radius: 10px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0; 
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        .logo-text span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Tool Container */
+        .tool-container {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin: 40px auto;
+        }
+
+        .tool-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .tool-header h2 {
+            font-size: 2.2rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .tool-header p {
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Upload Area */
+        .upload-area {
+            border: 2px dashed var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 25px;
+        }
+
+        .upload-area:hover {
+            border-color: var(--primary-color);
+            background-color: rgba(74, 107, 255, 0.05);
+        }
+
+        .upload-area.active {
+            border-color: var(--primary-color);
+            background-color: rgba(74, 107, 255, 0.1);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:disabled {
+            background: var(--light-gray);
+            color: var(--gray-color);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        /* Options Section */
+        .options-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .option-group {
+            margin-bottom: 15px;
+        }
+
+        .option-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .option-group select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            background: white;
+            transition: var(--transition);
+        }
+
+        .option-group select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        /* Result Area */
+        .result-area {
+            display: none;
+            margin-top: 30px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            background: white;
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .result-header h3 {
+            color: var(--dark-color);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--dark-color);
+            border: 1px solid var(--light-gray);
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-gray);
+        }
+
+        .extracted-text {
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 15px;
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--light-gray);
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(74, 107, 255, 0.2);
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Ad Container */
+        .ad-container {
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            text-align: center;
+            margin: 30px 0;
+            border: 1px solid var(--light-gray);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 60px 0;
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .feature-text h3 {
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+
+        .feature-text p {
+            color: var(--gray-color);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+
+        .footer-logo-icon {
+            font-size: 1.8rem;
+            color: white;
+            margin-right: 10px;
+        }
+
+        .footer-logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .footer-logo-text span {
+            color: var(--accent-color);
+        }
+
+        .footer-about p {
+            color: #b2bec3;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #b2bec3;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b2bec3;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            .tool-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .tool-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .options-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn-secondary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-tools logo-icon"></i>
+                <span class="logo-text">File<span>Tools</span>Pro</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+             <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="img_tools.html">Image Tools</a></li>
+                    <li><a href="pdf_tools.html">PDF Tools</a></li>
+                    <li><a href="about_us.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>PDF OCR Text Extraction Tool</h1>
+            <p>Extract text from scanned PDFs and images with our free online OCR technology. Convert your documents to editable text in seconds.</p>
+        </div>
+    </section>
+
+    <!-- Top Ad Banner -->
+    <div class="container">
+        <div class="ad-container">
+            <!-- Google AdSense Ad Unit -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+            <!-- PDF OCR Top Banner -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-app-pub-3427739408542708/9208278701"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <!-- Main Tool Container -->
+    <div class="container">
+        <div class="tool-container">
+            <div class="tool-header">
+                <h2>Extract Text from Your Document</h2>
+                <p>Upload a scanned PDF or image file to extract the text using our OCR technology</p>
+            </div>
+            
+            <div id="uploadArea" class="upload-area">
+                <i class="fas fa-file-pdf upload-icon"></i>
+                <h3>Drag & Drop your file here</h3>
+                <p class="text-muted">or</p>
+                <button id="selectFileBtn" class="btn-primary">Select File</button>
+                <input type="file" id="fileInput" class="file-input" accept=".pdf,.jpg,.jpeg,.png,.tiff">
+            </div>
+            
+            <div class="options-section">
+                <div class="option-group">
+                    <label for="languageSelect">Document Language</label>
+                    <select id="languageSelect" class="form-select">
+                        <option value="eng" selected>English</option>
+                        <option value="spa">Spanish</option>
+                        <option value="fra">French</option>
+                        <option value="deu">German</option>
+                        <option value="chi_sim">Chinese (Simplified)</option>
+                        <option value="chi_tra">Chinese (Traditional)</option>
+                        <option value="ara">Arabic</option>
+                        <option value="rus">Russian</option>
+                        <option value="por">Portuguese</option>
+                    </select>
+                </div>
+                
+                <div class="option-group">
+                    <label for="outputFormat">Output Format</label>
+                    <select id="outputFormat" class="form-select">
+                        <option value="txt" selected>Plain Text (.txt)</option>
+                        <option value="docx">Word Document (.docx)</option>
+                        <option value="pdf">Searchable PDF (.pdf)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="loading-spinner" id="loadingSpinner">
+                <div class="spinner"></div>
+                <p>Processing your document... This may take a minute.</p>
+            </div>
+            
+            <button id="extractBtn" class="btn-primary" disabled>Extract Text</button>
+            
+            <div id="resultArea" class="result-area">
+                <div class="result-header">
+                    <h3>Extracted Text</h3>
+                    <div class="action-buttons">
+                        <button id="copyTextBtn" class="btn-secondary">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                        <button id="downloadBtn" class="btn-primary">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                </div>
+                <div id="extractedText" class="extracted-text"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Middle Ad Banner -->
+    <div class="container">
+        <div class="ad-container">
+            <!-- Google AdSense Ad Unit -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+            <!-- PDF OCR Middle Rectangle -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-app-pub-3427739408542708/8095627141"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="tool-header">
+                <h2>Why Use Our PDF OCR Tool?</h2>
+                <p>Key features that make our text extraction tool stand out</p>
+            </div>
+            
+            <div class="features-container">
+                <div class="feature-item">
+                    <i class="fas fa-bolt feature-icon"></i>
+                    <div class="feature-text">
+                        <h3>High Accuracy OCR</h3>
+                        <p>Our advanced OCR technology delivers accurate text recognition for both PDFs and images.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-lock feature-icon"></i>
+                    <div class="feature-text">
+                        <h3>Secure Processing</h3>
+                        <p>Files are processed in your browser and never uploaded to our servers for maximum privacy.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-language feature-icon"></i>
+                    <div class="feature-text">
+                        <h3>Multi-language Support</h3>
+                        <p>Extract text from documents in multiple languages including English, Spanish, French, and more.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-file-download feature-icon"></i>
+                    <div class="feature-text">
+                        <h3>Multiple Output Formats</h3>
+                        <p>Download your extracted text as plain text, Word document, or searchable PDF.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Ad Banner -->
+    <div class="container">
+        <div class="ad-container">
+            <!-- Google AdSense Ad Unit -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+            <!-- PDF OCR Bottom Banner -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-app-pub-3427739408542708/5958217262"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-tools footer-logo-icon"></i>
+                        <span class="footer-logo-text">File<span>Tools</span>Pro</span>
+                    </a>
+                    <p>Providing free, fast and secure online tools for all your file conversion and optimization needs.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="img_tools.html">Image Tools</a></li>
+                        <li><a href="pdf_tools.html">PDF Tools</a></li>
+                        <li><a href="about_us.html">About Us</a></li>
+                       
+                    </ul>
+                </div>
+                
+              
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> FileToolsPro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Tesseract.js for OCR functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+    
+    <!-- PDF.js for PDF processing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
+    <script>
+        // Set PDF.js worker path
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js';
+        
+        // DOM elements
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const selectFileBtn = document.getElementById('selectFileBtn');
+        const extractBtn = document.getElementById('extractBtn');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const resultArea = document.getElementById('resultArea');
+        const extractedText = document.getElementById('extractedText');
+        const copyTextBtn = document.getElementById('copyTextBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const languageSelect = document.getElementById('languageSelect');
+        const outputFormat = document.getElementById('outputFormat');
+        
+        let selectedFile = null;
+        
+        // Event listeners
+        selectFileBtn.addEventListener('click', () => fileInput.click());
+        
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileSelection(e.target.files[0]);
+            }
+        });
+        
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('active');
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('active');
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('active');
+            
+            if (e.dataTransfer.files.length > 0) {
+                handleFileSelection(e.dataTransfer.files[0]);
+            }
+        });
+        
+        extractBtn.addEventListener('click', processDocument);
+        copyTextBtn.addEventListener('click', copyTextToClipboard);
+        downloadBtn.addEventListener('click', downloadExtractedText);
+        
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Functions
+        function handleFileSelection(file) {
+            // Check file type and size
+            const validTypes = ['application/pdf', 'image/jpeg', 'image/png', 'image/tiff'];
+            const maxSize = 25 * 1024 * 1024; // 25MB
+            
+            if (!validTypes.includes(file.type) && !file.name.match(/\.(pdf|jpe?g|png|tiff)$/i)) {
+                alert('Please select a valid PDF or image file (PDF, JPG, PNG, TIFF).');
+                return;
+            }
+            
+            if (file.size > maxSize) {
+                alert('File size exceeds the 25MB limit. Please choose a smaller file.');
+                return;
+            }
+            
+            selectedFile = file;
+            extractBtn.disabled = false;
+            
+            // Update UI to show selected file
+            uploadArea.innerHTML = `
+                <i class="fas fa-file-alt upload-icon"></i>
+                <h3>${file.name}</h3>
+                <p class="text-muted">${(file.size / (1024 * 1024)).toFixed(2)} MB</p>
+                <button id="changeFileBtn" class="btn-secondary">Change File</button>
+            `;
+            
+            document.getElementById('changeFileBtn').addEventListener('click', resetFileSelection);
+        }
+        
+        function resetFileSelection() {
+            selectedFile = null;
+            extractBtn.disabled = true;
+            resultArea.style.display = 'none';
+            
+            uploadArea.innerHTML = `
+                <i class="fas fa-file-pdf upload-icon"></i>
+                <h3>Drag & Drop your file here</h3>
+                <p class="text-muted">or</p>
+                <button id="selectFileBtn" class="btn-primary">Select File</button>
+            `;
+            
+            document.getElementById('selectFileBtn').addEventListener('click', () => fileInput.click());
+        }
+        
+        async function processDocument() {
+            if (!selectedFile) return;
+            
+            // Show loading spinner
+            loadingSpinner.style.display = 'block';
+            extractBtn.disabled = true;
+            
+            try {
+                let text = '';
+                
+                if (selectedFile.type === 'application/pdf' || selectedFile.name.match(/\.pdf$/i)) {
+                    text = await extractTextFromPDF(selectedFile);
+                } else {
+                    text = await extractTextFromImage(selectedFile);
+                }
+                
+                // Display results
+                extractedText.textContent = text;
+                resultArea.style.display = 'block';
+                
+                // Scroll to results
+                resultArea.scrollIntoView({ behavior: 'smooth' });
+            } catch (error) {
+                console.error('Error processing document:', error);
+                alert('An error occurred while processing your document. Please try again.');
+            } finally {
+                loadingSpinner.style.display = 'none';
+                extractBtn.disabled = false;
+            }
+        }
+        
+        async function extractTextFromPDF(pdfFile) {
+            return new Promise((resolve, reject) => {
+                const fileReader = new FileReader();
+                
+                fileReader.onload = async function() {
+                    try {
+                        const typedArray = new Uint8Array(this.result);
+                        const pdf = await pdfjsLib.getDocument(typedArray).promise;
+                        
+                        let fullText = '';
+                        const language = languageSelect.value;
+                        
+                        // Process each page
+                        for (let i = 1; i <= pdf.numPages; i++) {
+                            const page = await pdf.getPage(i);
+                            const viewport = page.getViewport({ scale: 2.0 });
+                            
+                            // Create canvas to render PDF page as image
+                            const canvas = document.createElement('canvas');
+                            const context = canvas.getContext('2d');
+                            canvas.height = viewport.height;
+                            canvas.width = viewport.width;
+                            
+                            await page.render({
+                                canvasContext: context,
+                                viewport: viewport
+                            }).promise;
+                            
+                            // Use Tesseract.js to extract text from the canvas
+                            const { data: { text } } = await Tesseract.recognize(
+                                canvas,
+                                language,
+                                { logger: m => console.log(m) }
+                            );
+                            
+                            fullText += text + '\n\n';
+                        }
+                        
+                        resolve(fullText.trim());
+                    } catch (error) {
+                        reject(error);
+                    }
+                };
+                
+                fileReader.onerror = reject;
+                fileReader.readAsArrayBuffer(pdfFile);
+            });
+        }
+        
+        async function extractTextFromImage(imageFile) {
+            const language = languageSelect.value;
+            const { data: { text } } = await Tesseract.recognize(
+                imageFile,
+                language,
+                { logger: m => console.log(m) }
+            );
+            
+            return text;
+        }
+        
+        function copyTextToClipboard() {
+            const text = extractedText.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                // Show copied feedback
+                const originalText = copyTextBtn.innerHTML;
+                copyTextBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => {
+                    copyTextBtn.innerHTML = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Could not copy text: ', err);
+                alert('Failed to copy text to clipboard.');
+            });
+        }
+        function showInterstitialAd() {
+    // This would typically be called when navigating between pages
+    // or when completing an action like file conversion
+    if(typeof google !== 'undefined' && google.ads && google.ads.interstitial) {
+        const interstitial = new google.ads.interstitial.InterstitialAd();
+        interstitial.load({
+            adUnitPath: '/3427739408542708/3753923427',
+            request: {
+                adSizes: [{width: 300, height: 250}]
+            }
+        }).then(() => {
+            interstitial.show();
+        });
+    } else {
+        console.log('Interstitial ad not available');
+    }
+}
+
+// Example: Show interstitial when leaving a tool page
+document.querySelectorAll('.tool-link, .category-btn').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        showInterstitialAd();
+        // After ad is shown (or if not available), proceed to link
+        setTimeout(() => {
+            window.location.href = this.href;
+        }, 1000);
+    });
+});
+        function downloadExtractedText() {
+            const text = extractedText.textContent;
+            const format = outputFormat.value;
+            let mimeType, extension, content;
+            
+            switch (format) {
+                case 'docx':
+                    // For a real implementation, you would need a library like docx.js
+                    // This is a simplified version that creates a basic text file
+                    mimeType = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+                    extension = 'docx';
+                    content = text;
+                    alert('Note: In a full implementation, this would generate a proper DOCX file. Currently downloading as text.');
+                    break;
+                case 'pdf':
+                    // For a real implementation, you would need a library like jsPDF
+                    // This is a simplified version that creates a basic text file
+                    mimeType = 'application/pdf';
+                    extension = 'pdf';
+                    content = text;
+                    alert('Note: In a full implementation, this would generate a searchable PDF. Currently downloading as text.');
+                    break;
+                case 'txt':
+                default:
+                    mimeType = 'text/plain';
+                    extension = 'txt';
+                    content = text;
+                    break;
+            }
+            
+            const blob = new Blob([content], { type: mimeType });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `extracted_text.${extension}`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "PDF OCR Tool",
+      "url": "https://filetoolspro.com/pdf-ocr",
+      "description": "Free online OCR tool to extract text from PDFs and images. Convert scanned documents to editable text instantly.",
+      "applicationCategory": "DocumentUtility",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+</body>
+</html>

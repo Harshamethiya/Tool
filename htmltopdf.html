@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online tool to convert HTML files and web pages to PDF documents. Create PDFs from HTML with FileToolsPro.">
+    <meta name="keywords" content="HTML to PDF, web page to PDF, convert HTML, PDF converter, online PDF tool, FileToolsPro">
+    <meta name="author" content="FileToolsPro">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Free HTML to PDF Converter | Convert Web Pages to PDF">
+    <meta property="og:description" content="Convert HTML files and web pages to PDF documents with our free online tool.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://filetoolspro.com/html-to-pdf">
+    <meta property="og:image" content="https://filetoolspro.com/images/html-to-pdf-preview.jpg">
+    <link rel="canonical" href="https://filetoolspro.com/html-to-pdf">
+    
+    <title>Free HTML to PDF Converter | Convert Web Pages to PDF | FileToolsPro</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #4a6bff;
+            --secondary-color: #6c5ce7;
+            --accent-color: #00cec9;
+            --light-color: #f8f9fa;
+            --dark-color: #2d3436;
+            --gray-color: #636e72;
+            --light-gray: #dfe6e9;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --border-radius: 10px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0; 
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        .logo-text span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Tool Container */
+        .tool-container {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin: 40px auto;
+        }
+
+        .tool-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .tool-header h2 {
+            font-size: 2.2rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .tool-header p {
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Input Options */
+        .input-options {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .input-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+        }
+
+        .input-tab.active {
+            border-bottom: 3px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Input Sections */
+        .input-section {
+            display: none;
+            margin-bottom: 25px;
+        }
+
+        .input-section.active {
+            display: block;
+        }
+
+        /* URL Input */
+        .url-input {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .url-input input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .url-input input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .url-input button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: var(--border-radius);
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .url-input button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* File Upload */
+        .upload-area {
+            border: 2px dashed var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 20px;
+        }
+
+        .upload-area:hover {
+            border-color: var(--primary-color);
+            background-color: rgba(74, 107, 255, 0.05);
+        }
+
+        .upload-area.active {
+            border-color: var(--primary-color);
+            background-color: rgba(74, 107, 255, 0.1);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        /* HTML Input */
+        .html-editor {
+            width: 100%;
+            height: 300px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            font-family: monospace;
+            resize: vertical;
+            margin-bottom: 20px;
+        }
+
+        /* Options Section */
+        .options-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .option-group {
+            margin-bottom: 15px;
+        }
+
+        .option-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .option-group select,
+        .option-group input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            background: white;
+            transition: var(--transition);
+        }
+
+        .option-group select:focus,
+        .option-group input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        /* Convert Button */
+        .convert-btn-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:disabled {
+            background: var(--light-gray);
+            color: var(--gray-color);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Result Area */
+        .result-area {
+            display: none;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(74, 107, 255, 0.2);
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Ad Container */
+        .ad-container {
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            text-align: center;
+            margin: 30px 0;
+            border: 1px solid var(--light-gray);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 60px 0;
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .feature-text h3 {
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+
+        .feature-text p {
+            color: var(--gray-color);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+
+        .footer-logo-icon {
+            font-size: 1.8rem;
+            color: white;
+            margin-right: 10px;
+        }
+
+        .footer-logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .footer-logo-text span {
+            color: var(--accent-color);
+        }
+
+        .footer-about p {
+            color: #b2bec3;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #b2bec3;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b2bec3;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            .tool-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .input-options {
+                flex-direction: column;
+                border-bottom: none;
+            }
+            
+            .input-tab {
+                border-bottom: none;
+                border-left: 3px solid transparent;
+            }
+            
+            .input-tab.active {
+                border-bottom: none;
+                border-left: 3px solid var(--primary-color);
+            }
+            
+            .url-input {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .tool-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .options-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-tools logo-icon"></i>
+                <span class="logo-text">File<span>Tools</span>Pro</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+             <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="img_tools.html">Image Tools</a></li>
+                    <li><a href="pdf_tools.html">PDF Tools</a></li>
+                    <li><a href="about_us.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>HTML to PDF Converter</h1>
+            <p>Convert HTML files and web pages to PDF documents quickly and easily. Perfect for saving web content or creating documents.</p>
+        </div>
+    </section>
+
+    <!-- Top Ad Banner -->
+    <div class="container">
+        <div class="ad-container">
+            <!-- Google AdSense Ad Unit -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+            <!-- HTML to PDF Top Banner -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-app-pub-3427739408542708/9208278701"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <!-- Main Tool Container -->
+    <div class="container">
+        <div class="tool-container">
+            <div class="tool-header">
+                <h2>Convert HTML to PDF</h2>
+                <p>Choose your input method and convert to PDF with our easy-to-use tool</p>
+            </div>
+            
+            <!-- Input Options Tabs -->
+            <div class="input-options">
+                <div class="input-tab active" data-tab="url">Web Page URL</div>
+                <div class="input-tab" data-tab="file">HTML File</div>
+                <div class="input-tab" data-tab="html">HTML Code</div>
+            </div>
+            
+            <!-- URL Input Section -->
+            <div id="urlSection" class="input-section active">
+                <div class="url-input">
+                    <input type="url" id="pageUrl" placeholder="Enter web page URL (e.g., https://example.com)">
+                    <button id="fetchUrlBtn">Fetch Page</button>
+                </div>
+                <div id="urlPreview" style="display: none; height: 300px; border: 1px solid var(--light-gray); border-radius: var(--border-radius); margin-bottom: 20px; overflow: hidden;">
+                    <iframe id="previewFrame" style="width: 100%; height: 100%; border: none;"></iframe>
+                </div>
+            </div>
+            
+            <!-- File Upload Section -->
+            <div id="fileSection" class="input-section">
+                <div id="uploadArea" class="upload-area">
+                    <i class="fas fa-file-upload upload-icon"></i>
+                    <h3>Drag & Drop your HTML file here</h3>
+                    <p class="text-muted">or</p>
+                    <button id="selectFileBtn" class="btn-primary">Select File</button>
+                    <input type="file" id="fileInput" class="file-input" accept=".html,.htm">
+                </div>
+                <div id="filePreview" style="display: none; height: 300px; border: 1px solid var(--light-gray); border-radius: var(--border-radius); margin-bottom: 20px; overflow: hidden;">
+                    <iframe id="filePreviewFrame" style="width: 100%; height: 100%; border: none;"></iframe>
+                </div>
+            </div>
+            
+            <!-- HTML Input Section -->
+            <div id="htmlSection" class="input-section">
+                <textarea id="htmlEditor" class="html-editor" placeholder="Paste your HTML code here..."></textarea>
+                <div id="htmlPreview" style="display: none; height: 300px; border: 1px solid var(--light-gray); border-radius: var(--border-radius); margin-bottom: 20px; overflow: hidden;">
+                    <iframe id="htmlPreviewFrame" style="width: 100%; height: 100%; border: none;"></iframe>
+                </div>
+                <button id="previewHtmlBtn" class="btn-primary">Preview HTML</button>
+            </div>
+            
+            <!-- Conversion Options -->
+            <div class="options-section">
+                <div class="option-group">
+                    <label for="pageSize">Page Size</label>
+                    <select id="pageSize">
+                        <option value="A4">A4 (210 × 297 mm)</option>
+                        <option value="Letter">Letter (8.5 × 11 in)</option>
+                        <option value="Legal">Legal (8.5 × 14 in)</option>
+                        <option value="Tabloid">Tabloid (11 × 17 in)</option>
+                    </select>
+                </div>
+                
+                <div class="option-group">
+                    <label for="pageOrientation">Orientation</label>
+                    <select id="pageOrientation">
+                        <option value="portrait">Portrait</option>
+                        <option value="landscape">Landscape</option>
+                    </select>
+                </div>
+                
+                <div class="option-group">
+                    <label for="marginSize">Margin Size (mm)</label>
+                    <input type="number" id="marginSize" value="10" min="0">
+                </div>
+            </div>
+            
+            <!-- Convert Button -->
+            <div class="convert-btn-container">
+                <button id="convertBtn" class="btn-primary">Convert to PDF</button>
+            </div>
+            
+            <!-- Loading Spinner -->
+            <div class="loading-spinner" id="loadingSpinner">
+                <div class="spinner"></div>
+                <p>Converting to PDF...</p>
+            </div>
+            
+            <!-- Result Area -->
+            <div id="resultArea" class="result-area">
+                <h3>Your PDF is ready!</h3>
+                <button id="downloadBtn" class="btn-primary">
+                    <i class="fas fa-download"></i> Download PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Middle Ad Banner -->
+    <div class="container">
+        <div class="ad-container">
+            <!-- Google AdSense Ad Unit -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+            <!-- HTML to PDF Middle Rectangle -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="tool-header">
+                <h2>Why Use Our HTML to PDF Converter?</h2>
+                <p>Key features that make our conversion tool stand out</p>
+            </div>
+            
+            <div class="features-container">
+                <div class="feature-item">
+                    <i class="fas fa-bolt feature-icon"></i>
+                    <div class="feature-text">
+                        <h3>Multiple Input Options</h3>
+                        <p>Convert from web page URLs, HTML files, or directly from HTML code.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-lock feature-icon"></i>
+                    <div class="feature-text">
+                        <h3>Secure Processing</h3>
+                        <p>Your documents are processed securely with no server upload required.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-sliders-h feature-icon"></i>
+                    <div class="feature-text">
+                        <h3>Customizable Output</h3>
+                        <p>Adjust page size, orientation, and margins to create the perfect PDF.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-mobile-alt feature-icon"></i>
+                    <div class="feature-text">
+                        <h3>Works Everywhere</h3>
+                        <p>Use our tool on any device - desktop, tablet, or mobile phone.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Ad Banner -->
+    <div class="container">
+        <div class="ad-container">
+            <!-- Google AdSense Ad Unit -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+            <!-- HTML to PDF Bottom Banner -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-app-pub-3427739408542708/5958217262"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-tools footer-logo-icon"></i>
+                        <span class="footer-logo-text">File<span>Tools</span>Pro</span>
+                    </a>
+                    <p>Providing free, fast and secure online tools for all your file conversion and optimization needs.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="img_tools.html">Image Tools</a></li>
+                        <li><a href="pdf_tools.html">PDF Tools</a></li>
+                        <li><a href="about_us.html">About Us</a></li>
+                       
+                    </ul>
+                </div>
+                
+              
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> FileToolsPro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- html2pdf.js for PDF conversion -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- Download.js for file downloads -->
+    <script src="https://unpkg.com/downloadjs@1.4.7"></script>
+    
+    <script>
+        // DOM elements
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        const inputTabs = document.querySelectorAll('.input-tab');
+        const inputSections = document.querySelectorAll('.input-section');
+        const urlSection = document.getElementById('urlSection');
+        const fileSection = document.getElementById('fileSection');
+        const htmlSection = document.getElementById('htmlSection');
+        const pageUrl = document.getElementById('pageUrl');
+        const fetchUrlBtn = document.getElementById('fetchUrlBtn');
+        const urlPreview = document.getElementById('urlPreview');
+        const previewFrame = document.getElementById('previewFrame');
+        const uploadArea = document.getElementById('uploadArea');
+        const selectFileBtn = document.getElementById('selectFileBtn');
+        const fileInput = document.getElementById('fileInput');
+        const filePreview = document.getElementById('filePreview');
+        const filePreviewFrame = document.getElementById('filePreviewFrame');
+        const htmlEditor = document.getElementById('htmlEditor');
+        const htmlPreview = document.getElementById('htmlPreview');
+        const htmlPreviewFrame = document.getElementById('htmlPreviewFrame');
+        const previewHtmlBtn = document.getElementById('previewHtmlBtn');
+        const convertBtn = document.getElementById('convertBtn');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const resultArea = document.getElementById('resultArea');
+        const downloadBtn = document.getElementById('downloadBtn');
+        
+        // Options elements
+        const pageSize = document.getElementById('pageSize');
+        const pageOrientation = document.getElementById('pageOrientation');
+        const marginSize = document.getElementById('marginSize');
+        
+        // Variables
+        let currentTab = 'url';
+        let pdfBlob = null;
+        let selectedFile = null;
+        // Function to show interstitial ad
+function showInterstitialAd() {
+    // This would typically be called when navigating between pages
+    // or when completing an action like file conversion
+    if(typeof google !== 'undefined' && google.ads && google.ads.interstitial) {
+        const interstitial = new google.ads.interstitial.InterstitialAd();
+        interstitial.load({
+            adUnitPath: '/3427739408542708/3753923427',
+            request: {
+                adSizes: [{width: 300, height: 250}]
+            }
+        }).then(() => {
+            interstitial.show();
+        });
+    } else {
+        console.log('Interstitial ad not available');
+    }
+}
+
+// Example: Show interstitial when leaving a tool page
+document.querySelectorAll('.tool-link, .category-btn').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        showInterstitialAd();
+        // After ad is shown (or if not available), proceed to link
+        setTimeout(() => {
+            window.location.href = this.href;
+        }, 1000);
+    });
+});
+        // Event listeners
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Input tabs
+        inputTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active tab
+                inputTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentTab = tab.dataset.tab;
+                
+                // Show corresponding section
+                inputSections.forEach(section => section.classList.remove('active'));
+                document.getElementById(`${currentTab}Section`).classList.add('active');
+            });
+        });
+        
+        // URL input
+        fetchUrlBtn.addEventListener('click', fetchUrl);
+        pageUrl.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') fetchUrl();
+        });
+        
+        // File upload
+        selectFileBtn.addEventListener('click', () => fileInput.click());
+        
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                selectedFile = e.target.files[0];
+                handleFileSelection(selectedFile);
+            }
+        });
+        
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('active');
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('active');
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('active');
+            
+            if (e.dataTransfer.files.length > 0) {
+                selectedFile = e.dataTransfer.files[0];
+                handleFileSelection(selectedFile);
+            }
+        });
+        
+        // HTML editor
+        previewHtmlBtn.addEventListener('click', previewHtml);
+        
+        // Convert button
+        convertBtn.addEventListener('click', convertToPdf);
+        
+        // Download button
+        downloadBtn.addEventListener('click', downloadPdf);
+        
+        // Functions
+        function fetchUrl() {
+            const url = pageUrl.value.trim();
+            
+            if (!url) {
+                alert('Please enter a valid URL');
+                return;
+            }
+            
+            // Validate URL format
+            try {
+                new URL(url);
+            } catch (e) {
+                alert('Please enter a valid URL (e.g., https://example.com)');
+                return;
+            }
+            
+            // Show preview
+            previewFrame.src = url;
+            urlPreview.style.display = 'block';
+        }
+        
+        function handleFileSelection(file) {
+            // Check file type
+            const validTypes = ['text/html'];
+            
+            if (!validTypes.includes(file.type) && !file.name.match(/\.html?$/i)) {
+                alert('Please select a valid HTML file (.html or .htm)');
+                return;
+            }
+            
+            // Update UI
+            uploadArea.innerHTML = `
+                <i class="fas fa-file-code upload-icon"></i>
+                <h3>${file.name}</h3>
+                <p class="text-muted">${(file.size / 1024).toFixed(2)} KB</p>
+                <button id="changeFileBtn" class="btn-secondary">Change File</button>
+            `;
+            
+            document.getElementById('changeFileBtn').addEventListener('click', resetFileSelection);
+            
+            // Preview file
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                filePreviewFrame.srcdoc = e.target.result;
+                filePreview.style.display = 'block';
+            };
+            reader.readAsText(file);
+        }
+        
+        function resetFileSelection() {
+            fileInput.value = '';
+            selectedFile = null;
+            filePreview.style.display = 'none';
+            uploadArea.innerHTML = `
+                <i class="fas fa-file-upload upload-icon"></i>
+                <h3>Drag & Drop your HTML file here</h3>
+                <p class="text-muted">or</p>
+                <button id="selectFileBtn" class="btn-primary">Select File</button>
+            `;
+            document.getElementById('selectFileBtn').addEventListener('click', () => fileInput.click());
+        }
+        
+        function previewHtml() {
+            const html = htmlEditor.value.trim();
+            
+            if (!html) {
+                alert('Please enter some HTML code');
+                return;
+            }
+            
+            htmlPreviewFrame.srcdoc = html;
+            htmlPreview.style.display = 'block';
+        }
+        
+        async function convertToPdf() {
+            loadingSpinner.style.display = 'block';
+            resultArea.style.display = 'none';
+            
+            try {
+                // Get the element to convert based on current tab
+                let element;
+                let htmlContent = '';
+                
+                switch (currentTab) {
+                    case 'url':
+                        if (!previewFrame.src) {
+                            alert('Please fetch a web page first');
+                            loadingSpinner.style.display = 'none';
+                            return;
+                        }
+                        
+                        // For URLs, we need to use the iframe's content
+                        try {
+                            htmlContent = previewFrame.contentDocument.documentElement.outerHTML;
+                            element = document.createElement('div');
+                            element.innerHTML = htmlContent;
+                        } catch (e) {
+                            alert('Could not access the web page content due to CORS restrictions. Try using the HTML code option instead.');
+                            loadingSpinner.style.display = 'none';
+                            return;
+                        }
+                        break;
+                        
+                    case 'file':
+                        if (!selectedFile) {
+                            alert('Please select an HTML file first');
+                            loadingSpinner.style.display = 'none';
+                            return;
+                        }
+                        
+                        // For files, we can use the preview iframe content
+                        try {
+                            htmlContent = filePreviewFrame.contentDocument.documentElement.outerHTML;
+                            element = document.createElement('div');
+                            element.innerHTML = htmlContent;
+                        } catch (e) {
+                            alert('Could not process the HTML file. Please try another file.');
+                            loadingSpinner.style.display = 'none';
+                            return;
+                        }
+                        break;
+                        
+                    case 'html':
+                        if (!htmlEditor.value.trim()) {
+                            alert('Please enter some HTML code first');
+                            loadingSpinner.style.display = 'none';
+                            return;
+                        }
+                        
+                        htmlContent = htmlEditor.value;
+                        element = document.createElement('div');
+                        element.innerHTML = htmlContent;
+                        break;
+                }
+                
+                // PDF options
+                const opt = {
+                    margin: parseFloat(marginSize.value),
+                    filename: 'document.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { 
+                        unit: 'mm',
+                        format: pageSize.value,
+                        orientation: pageOrientation.value
+                    }
+                };
+                
+                // Generate PDF
+                const result = await html2pdf().set(opt).from(element).toPdf().output('blob');
+                pdfBlob = result;
+                
+                // Show result
+                loadingSpinner.style.display = 'none';
+                resultArea.style.display = 'block';
+            } catch (error) {
+                console.error('Error generating PDF:', error);
+                alert('An error occurred while generating the PDF. Please try again.');
+                loadingSpinner.style.display = 'none';
+            }
+        }
+        
+        function downloadPdf() {
+            if (!pdfBlob) return;
+            
+            let fileName = 'document.pdf';
+            
+            if (currentTab === 'url' && pageUrl.value) {
+                try {
+                    const url = new URL(pageUrl.value);
+                    fileName = `${url.hostname.replace('www.', '')}.pdf`;
+                } catch (e) {
+                    // Use default filename if URL parsing fails
+                }
+            } else if (currentTab === 'file' && selectedFile) {
+                fileName = selectedFile.name.replace(/\.html?$/i, '.pdf');
+            }
+            
+            download(pdfBlob, fileName, 'application/pdf');
+        }
+    </script>
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "HTML to PDF Converter",
+      "url": "https://filetoolspro.com/html-to-pdf",
+      "description": "Free online tool to convert HTML files and web pages to PDF documents.",
+      "applicationCategory": "DocumentUtility",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+</body>
+</html>

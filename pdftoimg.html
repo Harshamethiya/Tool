@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online PDF to Image converter. Extract images from PDF files or convert entire pages to JPG, PNG, or other image formats. No installation required.">
+    <meta name="keywords" content="PDF to Image, PDF to JPG, PDF to PNG, extract images from PDF, convert PDF to image, PDF converter">
+    <meta name="author" content="FileToolsPro">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Free PDF to Image Converter | FileToolsPro">
+    <meta property="og:description" content="Convert PDF pages to images or extract images from PDF files. Free online tool with no installation required.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://filetoolspro.com/pdf-to-image">
+    <meta property="og:image" content="https://filetoolspro.com/images/pdf-to-image-preview.jpg">
+    <link rel="canonical" href="https://filetoolspro.com/pdf-to-image">
+    <title>PDF to Image Converter - Extract Images from PDF | FileToolsPro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #4a6bff;
+            --secondary-color: #6c5ce7;
+            --accent-color: #00cec9;
+            --light-color: #f8f9fa;
+            --dark-color: #2d3436;
+            --gray-color: #636e72;
+            --light-gray: #dfe6e9;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --border-radius: 10px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        .logo-text span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        /* Tool Container */
+        .tool-container {
+            padding: 60px 0;
+        }
+
+        .tool-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tool-header h1 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .tool-header p {
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Tool Content */
+        .tool-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .upload-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .upload-area {
+            border: 2px dashed var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: 40px 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .upload-area:hover {
+            border-color: var(--primary-color);
+            background: rgba(74, 107, 255, 0.05);
+        }
+
+        .upload-area i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .upload-area h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .upload-area p {
+            color: var(--gray-color);
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        #selectPdfBtn:active {
+            transform: scale(0.98);
+        }
+
+        .options-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .options-section h2 {
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .option-group {
+            margin-bottom: 20px;
+        }
+
+        .option-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .option-group select, 
+        .option-group input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .option-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 1em;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .radio-option input {
+            width: auto;
+        }
+
+        /* Results Section */
+        .results-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            display: none;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .results-header h2 {
+            color: var(--dark-color);
+        }
+
+        .download-all {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .download-all i {
+            font-size: 1.2rem;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .image-item {
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .image-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-preview {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            background: #f8f9fa;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .image-info {
+            padding: 15px;
+        }
+
+        .image-info h3 {
+            margin-bottom: 5px;
+            font-size: 1rem;
+            color: var(--dark-color);
+        }
+
+        .image-info p {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .image-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .image-actions a {
+            padding: 5px 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Ad Sections */
+        .ad-section {
+            background: #f1f3f5;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+            border: 1px dashed var(--gray-color);
+        }
+
+        .ad-section p {
+            color: var(--gray-color);
+            margin-bottom: 10px;
+        }
+
+        /* Loading State */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            animation: spin 1s linear infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+
+        .footer-logo-icon {
+            font-size: 1.8rem;
+            color: white;
+            margin-right: 10px;
+        }
+
+        .footer-logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .footer-logo-text span {
+            color: var(--accent-color);
+        }
+
+        .footer-about p {
+            color: #b2bec3;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #b2bec3;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .footer-newsletter p {
+            color: #b2bec3;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-btn {
+            padding: 0 15px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background: #00b5ad;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b2bec3;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .tool-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .tool-header h1 {
+                font-size: 2rem;
+            }
+            
+            .radio-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .tool-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .download-all {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-tools logo-icon"></i>
+                <span class="logo-text">File<span>Tools</span>Pro</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="img_tools.html">Image Tools</a></li>
+                    <li><a href="pdf_tools.html">PDF Tools</a></li>
+                
+                    <li><a href="about_us.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Tool Container -->
+    <main class="tool-container">
+        <div class="container">
+            <div class="tool-header">
+                <h1>PDF to Image Converter</h1>
+                <p>Extract images from PDF files or convert entire pages to JPG, PNG, or other image formats. Fast, secure, and completely free!</p>
+            </div>
+
+            <!-- Ad Section (Top) -->
+            <div class="ad-section">
+                <p>Advertisement</p>
+                <!-- Replace with your Google AdSense code -->
+                <div id="ad-top">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"
+                    crossorigin="anonymous"></script>
+                    <!-- PDF to Image Converter Top Ad -->
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-client="ca-app-pub-3427739408542708/9208278701"
+                        data-ad-slot="YOUR_AD_SLOT_ID"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+
+            <div class="tool-content">
+                <div class="upload-section">
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-file-pdf"></i>
+                        <h3>Select or Drop PDF File</h3>
+                        <p>Choose a PDF file to extract images or convert pages. Max file size: 50MB</p>
+                        <button class="btn" id="selectPdfBtn" onclick="document.getElementById('pdfInput').click()">Select PDF</button>
+                        <input type="file" id="pdfInput" accept=".pdf" style="display: none;">
+                    </div>
+                    <p id="fileName" style="margin-bottom: 20px; display: none;"></p>
+                    <button class="btn" id="processBtn" style="display: none;">Process PDF</button>
+                </div>
+
+                <div class="options-section">
+                    <h2>Conversion Options</h2>
+                    <div class="option-group">
+                        <label>Conversion Type</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="extractImages" name="conversionType" value="extract" checked>
+                                <label for="extractImages">Extract Images Only</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="convertPages" name="conversionType" value="convert">
+                                <label for="convertPages">Convert Pages to Images</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-group" id="formatGroup">
+                        <label for="imageFormat">Image Format</label>
+                        <select id="imageFormat">
+                            <option value="jpeg">JPEG</option>
+                            <option value="png">PNG</option>
+                            <option value="webp">WebP</option>
+                        </select>
+                    </div>
+
+                    <div class="option-group" id="qualityGroup" style="display: none;">
+                        <label for="imageQuality">Image Quality (1-100)</label>
+                        <input type="range" id="imageQuality" min="1" max="100" value="80">
+                        <span id="qualityValue">80</span>
+                    </div>
+
+                    <div class="option-group" id="pagesGroup" style="display: none;">
+                        <label for="pageRange">Page Range (e.g., 1-3,5,7-9)</label>
+                        <input type="text" id="pageRange" placeholder="All pages">
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div class="loading" id="loadingIndicator">
+                    <i class="fas fa-spinner"></i>
+                    <p>Processing your PDF file. Please wait...</p>
+                </div>
+
+                <!-- Results Section -->
+                <div class="results-section" id="resultsSection">
+                    <div class="results-header">
+                        <h2>Extracted Images</h2>
+                        <div class="download-all">
+                            <button class="btn" id="downloadAllBtn">
+                                <i class="fas fa-download"></i> Download All as ZIP
+                            </button>
+                        </div>
+                    </div>
+                    <div class="image-grid" id="imageGrid"></div>
+                </div>
+
+                <!-- Ad Section (Bottom) -->
+                <div class="ad-section">
+                    <p>Advertisement</p>
+                    <!-- Replace with your Google AdSense code -->
+                    <div id="ad-bottom">
+                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"
+                        crossorigin="anonymous"></script>
+                        <!-- PDF to Image Converter Bottom Ad -->
+                        <ins class="adsbygoogle"
+                            style="display:block"
+                            data-ad-client="ca-app-pub-3427739408542708/5958217262"
+                            data-ad-slot="YOUR_AD_SLOT_ID"
+                            data-ad-format="auto"
+                            data-full-width-responsive="true"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+     <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-tools footer-logo-icon"></i>
+                        <span class="footer-logo-text">File<span>Tools</span>Pro</span>
+                    </a>
+                    <p>Providing free, fast and secure online tools for all your file conversion and optimization needs.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="img_tools.html">Image Tools</a></li>
+                        <li><a href="pdf_tools.html">PDF Tools</a></li>
+                        <li><a href="about_us.html">About Us</a></li>
+                       
+                    </ul>
+                </div>
+                
+              
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> FileToolsPro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showInterstitialAd() {
+    // This would typically be called when navigating between pages
+    // or when completing an action like file conversion
+    if(typeof google !== 'undefined' && google.ads && google.ads.interstitial) {
+        const interstitial = new google.ads.interstitial.InterstitialAd();
+        interstitial.load({
+            adUnitPath: '/3427739408542708/3753923427',
+            request: {
+                adSizes: [{width: 300, height: 250}]
+            }
+        }).then(() => {
+            interstitial.show();
+        });
+    } else {
+        console.log('Interstitial ad not available');
+    }
+}
+
+// Example: Show interstitial when leaving a tool page
+document.querySelectorAll('.tool-link, .category-btn').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        showInterstitialAd();
+        // After ad is shown (or if not available), proceed to link
+        setTimeout(() => {
+            window.location.href = this.href;
+        }, 1000);
+    });
+});
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // PDF.js worker path
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
+
+        // DOM Elements
+        const uploadArea = document.getElementById('uploadArea');
+        const selectPdfBtn = document.getElementById('selectPdfBtn');
+        const pdfInput = document.getElementById('pdfInput');
+        const fileName = document.getElementById('fileName');
+        const processBtn = document.getElementById('processBtn');
+        const conversionTypeRadios = document.querySelectorAll('input[name="conversionType"]');
+        const formatGroup = document.getElementById('formatGroup');
+        const qualityGroup = document.getElementById('qualityGroup');
+        const qualityValue = document.getElementById('qualityValue');
+        const imageQuality = document.getElementById('imageQuality');
+        const pagesGroup = document.getElementById('pagesGroup');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const resultsSection = document.getElementById('resultsSection');
+        const imageGrid = document.getElementById('imageGrid');
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+
+        // Variables to store PDF data
+        let pdfFile = null;
+        let extractedImages = [];
+
+        // Event Listeners
+        selectPdfBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent any default behavior
+            pdfInput.click();   // Trigger the file input click
+        });
+        
+        pdfInput.addEventListener('change', handleFileSelect);
+        
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = 'var(--primary-color)';
+            uploadArea.style.backgroundColor = 'rgba(74, 107, 255, 0.05)';
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.borderColor = 'var(--light-gray)';
+            uploadArea.style.backgroundColor = '';
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = 'var(--light-gray)';
+            uploadArea.style.backgroundColor = '';
+            
+            if (e.dataTransfer.files.length) {
+                pdfInput.files = e.dataTransfer.files;
+                handleFileSelect({ target: pdfInput });
+            }
+        });
+        
+        conversionTypeRadios.forEach(radio => {
+            radio.addEventListener('change', toggleConversionOptions);
+        });
+        
+        imageQuality.addEventListener('input', () => {
+            qualityValue.textContent = imageQuality.value;
+        });
+        
+        processBtn.addEventListener('click', processPdf);
+        downloadAllBtn.addEventListener('click', downloadAllImages);
+
+        // Functions
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            
+            if (file && file.type === 'application/pdf') {
+                pdfFile = file;
+                fileName.textContent = `Selected file: ${file.name}`;
+                fileName.style.display = 'block';
+                processBtn.style.display = 'inline-block';
+                
+                // Scroll to options section
+                document.querySelector('.options-section').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert('Please select a valid PDF file.');
+            }
+        }
+
+        function toggleConversionOptions() {
+            const conversionType = document.querySelector('input[name="conversionType"]:checked').value;
+            
+            if (conversionType === 'extract') {
+                formatGroup.style.display = 'none';
+                qualityGroup.style.display = 'none';
+                pagesGroup.style.display = 'none';
+            } else {
+                formatGroup.style.display = 'block';
+                qualityGroup.style.display = 'block';
+                pagesGroup.style.display = 'block';
+            }
+        }
+
+        async function processPdf() {
+            if (!pdfFile) return;
+            
+            // Show loading indicator
+            loadingIndicator.style.display = 'block';
+            resultsSection.style.display = 'none';
+            imageGrid.innerHTML = '';
+            extractedImages = [];
+            
+            try {
+                const conversionType = document.querySelector('input[name="conversionType"]:checked').value;
+                
+                if (conversionType === 'extract') {
+                    await extractImagesFromPdf(pdfFile);
+                } else {
+                    await convertPdfPagesToImages(pdfFile);
+                }
+                
+                // Display results
+                displayResults();
+            } catch (error) {
+                console.error('Error processing PDF:', error);
+                alert('An error occurred while processing the PDF. Please try again.');
+            } finally {
+                loadingIndicator.style.display = 'none';
+            }
+        }
+
+        async function extractImagesFromPdf(pdfFile) {
+            const arrayBuffer = await pdfFile.arrayBuffer();
+            const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
+            
+            for (let i = 1; i <= pdf.numPages; i++) {
+                const page = await pdf.getPage(i);
+                const operatorList = await page.getOperatorList();
+                
+                for (const fn of operatorList.fnArray) {
+                    if (fn === pdfjsLib.OPS.paintJpegXObject || fn === pdfjsLib.OPS.paintImageXObject) {
+                        const args = operatorList.argsArray[operatorList.argsArray.length - 1];
+                        const imageName = args[0];
+                        const imageObj = page.objs.get(imageName);
+                        
+                        if (imageObj) {
+                            const blob = dataUrlToBlob(imageObj.data);
+                            extractedImages.push({
+                                name: `image-page${i}-${extractedImages.length + 1}.jpg`,
+                                blob: blob,
+                                url: URL.createObjectURL(blob),
+                                page: i
+                            });
+                        }
+                    }
+                }
+            }
+            
+            if (extractedImages.length === 0) {
+                alert('No images found in the PDF document.');
+            }
+        }
+
+        async function convertPdfPagesToImages(pdfFile) {
+            const arrayBuffer = await pdfFile.arrayBuffer();
+            const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
+            
+            // Get page range to convert
+            let pagesToConvert = [];
+            const pageRangeInput = document.getElementById('pageRange').value.trim();
+            
+            if (pageRangeInput) {
+                // Parse page range (e.g., "1-3,5,7-9")
+                const parts = pageRangeInput.split(',');
+                for (const part of parts) {
+                    if (part.includes('-')) {
+                        const [start, end] = part.split('-').map(Number);
+                        for (let i = start; i <= end; i++) {
+                            if (i >= 1 && i <= pdf.numPages) {
+                                pagesToConvert.push(i);
+                            }
+                        }
+                    } else {
+                        const pageNum = Number(part);
+                        if (pageNum >= 1 && pageNum <= pdf.numPages) {
+                            pagesToConvert.push(pageNum);
+                        }
+                    }
+                }
+                
+                // Remove duplicates and sort
+                pagesToConvert = [...new Set(pagesToConvert)].sort((a, b) => a - b);
+            } else {
+                // Convert all pages
+                pagesToConvert = Array.from({ length: pdf.numPages }, (_, i) => i + 1);
+            }
+            
+            if (pagesToConvert.length === 0) {
+                throw new Error('No valid pages selected for conversion.');
+            }
+            
+            // Get conversion options
+            const format = document.getElementById('imageFormat').value;
+            const quality = parseInt(document.getElementById('imageQuality').value) / 100;
+            
+            // Create a canvas for rendering
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Convert each selected page
+            for (const pageNum of pagesToConvert) {
+                const page = await pdf.getPage(pageNum);
+                const viewport = page.getViewport({ scale: 2.0 }); // Higher scale for better quality
+                
+                // Set canvas dimensions
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                
+                // Render PDF page to canvas
+                await page.render({
+                    canvasContext: ctx,
+                    viewport: viewport
+                }).promise;
+                
+                // Convert canvas to image blob
+                const blob = await new Promise((resolve) => {
+                    canvas.toBlob((blob) => {
+                        resolve(blob);
+                    }, `image/${format}`, quality);
+                });
+                
+                if (blob) {
+                    extractedImages.push({
+                        name: `page-${pageNum}.${format}`,
+                        blob: blob,
+                        url: URL.createObjectURL(blob),
+                        page: pageNum
+                    });
+                }
+            }
+        }
+
+        function displayResults() {
+            if (extractedImages.length === 0) return;
+            
+            imageGrid.innerHTML = '';
+            
+            extractedImages.forEach((image, index) => {
+                const imageItem = document.createElement('div');
+                imageItem.className = 'image-item';
+                
+                imageItem.innerHTML = `
+                    <img src="${image.url}" alt="Extracted image ${index + 1}" class="image-preview">
+                    <div class="image-info">
+                        <h3>${image.name}</h3>
+                        <p>Page ${image.page} • ${formatBytes(image.blob.size)}</p>
+                        <div class="image-actions">
+                            <a href="${image.url}" download="${image.name}" class="btn btn-outline">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                `;
+                
+                imageGrid.appendChild(imageItem);
+            });
+            
+            resultsSection.style.display = 'block';
+            
+            // Scroll to results
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        async function downloadAllImages() {
+            if (extractedImages.length === 0) return;
+            
+            try {
+                // Show loading state on button
+                const originalText = downloadAllBtn.innerHTML;
+                downloadAllBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing ZIP...';
+                downloadAllBtn.disabled = true;
+                
+                // Use JSZip to create a zip file
+                const JSZip = await loadJSZip();
+                const zip = new JSZip();
+                
+                // Add each image to the zip
+                extractedImages.forEach(image => {
+                    zip.file(image.name, image.blob);
+                });
+                
+                // Generate the zip file
+                const content = await zip.generateAsync({ type: 'blob' });
+                const zipUrl = URL.createObjectURL(content);
+                
+                // Create download link
+                const a = document.createElement('a');
+                a.href = zipUrl;
+                a.download = 'extracted-images.zip';
+                document.body.appendChild(a);
+                a.click();
+                
+                // Clean up
+                setTimeout(() => {
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(zipUrl);
+                }, 100);
+            } catch (error) {
+                console.error('Error creating ZIP file:', error);
+                alert('An error occurred while creating the ZIP file. Please try again.');
+            } finally {
+                // Restore button state
+                downloadAllBtn.innerHTML = originalText;
+                downloadAllBtn.disabled = false;
+            }
+        }
+
+        // Helper functions
+        function dataUrlToBlob(dataUrl) {
+            const binaryString = atob(dataUrl.split(',')[1]);
+            const bytes = new Uint8Array(binaryString.length);
+            
+            for (let i = 0; i < binaryString.length; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            
+            return new Blob([bytes], { type: 'image/jpeg' });
+        }
+
+        function formatBytes(bytes, decimals = 2) {
+            if (bytes === 0) return '0 Bytes';
+            
+            const k = 1024;
+            const dm = decimals < 0 ? 0 : decimals;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+        }
+
+        function loadJSZip() {
+            return new Promise((resolve, reject) => {
+                if (window.JSZip) {
+                    resolve(window.JSZip);
+                    return;
+                }
+                
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
+                script.onload = () => resolve(window.JSZip);
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        }
+
+        // Initialize
+        toggleConversionOptions();
+    </script>
+</body>
+</html>

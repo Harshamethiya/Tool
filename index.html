@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -515,6 +516,19 @@
         .newsletter-form {
             display: flex;
         }
+        /* Add to your existing CSS */
+.adsbygoogle {
+    margin: 20px auto;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.native-ad-container {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
 
         .newsletter-input {
             flex: 1;
@@ -647,6 +661,14 @@
             }
         }
     </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-YOUR_PUBLISHER_ID",
+            enable_page_level_ads: true
+        });
+    </script>
+    
 </head>
 <body>
     <!-- Header -->
@@ -664,10 +686,9 @@
             <nav id="mainNav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="image-tools.html">Image Tools</a></li>
-                    <li><a href="pdf-tools.html">PDF Tools</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="img_tools.html">Image Tools</a></li>
+                    <li><a href="pdf_tools.html">PDF Tools</a></li>
+                    <li><a href="about_us.html">About</a></li>
                 </ul>
             </nav>
         </div>
@@ -679,13 +700,20 @@
             <h1>Your Complete Online File Toolkit</h1>
             <p>Free, fast and secure online tools for all your image and PDF needs. No installation required - works directly in your browser.</p>
             
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search for tools...">
-                <button class="search-btn"><i class="fas fa-search"></i></button>
-            </div>
+          
         </div>
     </section>
-
+            <div class="container" style="margin: 20px auto; text-align: center;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-app-pub-3427739408542708/9208278701"
+         data-ad-slot="YOUR_BANNER_AD_SLOT_ID"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
     <!-- Popular Tools Section -->
     <section class="tools-section">
         <div class="container">
@@ -703,7 +731,7 @@
                     </div>
                     <div class="tool-card-body">
                         <p>Reduce image file size without losing quality. Perfect for websites and social media.</p>
-                        <a href="\Tool\img_compresor.html" class="tool-link">Use Tool</a>
+                        <a href="img_com.html" class="tool-link">Use Tool</a>
                     </div>
                 </div>
                 
@@ -714,7 +742,7 @@
                     </div>
                     <div class="tool-card-body">
                         <p>Convert between JPG, PNG, GIF, WebP and other image formats with ease.</p>
-                        <a href="image-converter.html" class="tool-link">Use Tool</a>
+                        <a href="img_convert.html" class="tool-link">Use Tool</a>
                     </div>
                 </div>
                 
@@ -725,7 +753,7 @@
                     </div>
                     <div class="tool-card-body">
                         <p>Resize your images to any dimension while maintaining aspect ratio.</p>
-                        <a href="image-resizer.html" class="tool-link">Use Tool</a>
+                        <a href="img_resize.html" class="tool-link">Use Tool</a>
                     </div>
                 </div>
                 
@@ -737,7 +765,7 @@
                     </div>
                     <div class="tool-card-body">
                         <p>Reduce PDF file size while preserving quality. Perfect for email attachments.</p>
-                        <a href="pdf-compressor.html" class="tool-link">Use Tool</a>
+                        <a href="pdf_comp.html" class="tool-link">Use Tool</a>
                     </div>
                 </div>
                 
@@ -748,7 +776,7 @@
                     </div>
                     <div class="tool-card-body">
                         <p>Combine multiple PDF files into a single document in seconds.</p>
-                        <a href="pdf-merger.html" class="tool-link">Use Tool</a>
+                        <a href="pdf_merge.html" class="tool-link">Use Tool</a>
                     </div>
                 </div>
                 
@@ -759,52 +787,25 @@
                     </div>
                     <div class="tool-card-body">
                         <p>Extract pages from PDF or split into multiple documents.</p>
-                        <a href="pdf-splitter.html" class="tool-link">Use Tool</a>
+                        <a href="pdf_split.html" class="tool-link">Use Tool</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Categories Section -->
-    <section class="categories-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Tool Categories</h2>
-                <p>Browse our tools by category to find exactly what you need</p>
-            </div>
-            
-            <div class="categories-grid">
-                <div class="category-card">
-                    <i class="fas fa-image category-icon"></i>
-                    <h3>Image Tools</h3>
-                    <p>Compress, convert, resize, edit and optimize your images with our comprehensive toolkit.</p>
-                    <a href="image-tools.html" class="category-btn">View All</a>
-                </div>
-                
-                <div class="category-card">
-                    <i class="fas fa-file-pdf category-icon"></i>
-                    <h3>PDF Tools</h3>
-                    <p>Compress, merge, split, convert and edit PDF documents with our easy-to-use tools.</p>
-                    <a href="pdf-tools.html" class="category-btn">View All</a>
-                </div>
-                
-                <div class="category-card">
-                    <i class="fas fa-lock category-icon"></i>
-                    <h3>Security Tools</h3>
-                    <p>Protect your files with password protection, encryption and redaction tools.</p>
-                    <a href="security-tools.html" class="category-btn">View All</a>
-                </div>
-                
-                <div class="category-card">
-                    <i class="fas fa-exchange-alt category-icon"></i>
-                    <h3>Conversion Tools</h3>
-                    <p>Convert between different file formats quickly and without quality loss.</p>
-                    <a href="conversion-tools.html" class="category-btn">View All</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="native-ad-container" style="margin: 30px auto; max-width: 600px;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-fb+5w+4e-db+86"
+         data-ad-client="ca-app-pub-3427739408542708/8095627141"
+         data-ad-slot="YOUR_NATIVE_AD_SLOT_ID"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+      
+    
 
     <!-- Features Section -->
     <section class="features-section">
@@ -859,11 +860,24 @@
     <section class="cta-section">
         <div class="container">
             <h2>Ready to Optimize Your Files?</h2>
-            <p>Join over 1 million users who trust our tools for their image and PDF needs. Get started now - no registration required!</p>
-            <a href="image-tools.html" class="cta-btn">Explore All Tools</a>
+            <p>Join over WebTool users who trust our tools for their image and PDF needs. Get started now - no registration required!</p>
+            
         </div>
     </section>
-
+<div class="footer-bottom">
+    <div style="margin: 20px auto; text-align: center;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-app-pub-3427739408542708/5958217262"
+             data-ad-slot="YOUR_BANNER_AD_SLOT_ID"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    <p>&copy; <span id="currentYear"></span> FileToolsPro. All rights reserved.</p>
+</div>
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -873,7 +887,7 @@
                         <i class="fas fa-tools footer-logo-icon"></i>
                         <span class="footer-logo-text">File<span>Tools</span>Pro</span>
                     </a>
-                    <p>Providing free, fast and secure online tools for all your file conversion and optimization needs since 2020.</p>
+                    <p>Providing free, fast and secure online tools for all your file conversion and optimization needs.</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
@@ -886,31 +900,14 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="image-tools.html">Image Tools</a></li>
-                        <li><a href="pdf-tools.html">PDF Tools</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="img_tools.html">Image Tools</a></li>
+                        <li><a href="pdf_tools.html">PDF Tools</a></li>
+                        <li><a href="about_us.html">About Us</a></li>
+                       
                     </ul>
                 </div>
                 
-                <div class="footer-links">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="terms.html">Terms of Service</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="cookies.html">Cookie Policy</a></li>
-                        <li><a href="disclaimer.html">Disclaimer</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-newsletter">
-                    <h3>Newsletter</h3>
-                    <p>Subscribe to get updates on new tools and features.</p>
-                    <form class="newsletter-form">
-                        <input type="email" class="newsletter-input" placeholder="Your email address">
-                        <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
+              
             </div>
             
             <div class="footer-bottom">
@@ -920,6 +917,35 @@
     </footer>
 
     <script>
+        function showInterstitialAd() {
+    // This would typically be called when navigating between pages
+    // or when completing an action like file conversion
+    if(typeof google !== 'undefined' && google.ads && google.ads.interstitial) {
+        const interstitial = new google.ads.interstitial.InterstitialAd();
+        interstitial.load({
+            adUnitPath: '/3427739408542708/3753923427',
+            request: {
+                adSizes: [{width: 300, height: 250}]
+            }
+        }).then(() => {
+            interstitial.show();
+        });
+    } else {
+        console.log('Interstitial ad not available');
+    }
+}
+
+// Example: Show interstitial when leaving a tool page
+document.querySelectorAll('.tool-link, .category-btn').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        showInterstitialAd();
+        // After ad is shown (or if not available), proceed to link
+        setTimeout(() => {
+            window.location.href = this.href;
+        }, 1000);
+    });
+});
         // Mobile menu toggle
         document.getElementById('mobileMenuBtn').addEventListener('click', function() {
             document.getElementById('mainNav').classList.toggle('active');

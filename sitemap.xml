@@ -1,102 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
+		<!--	created with www.mysitemapgenerator.com	-->
+		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-  <loc>https://tool-two-omega.vercel.app/</loc>
-  <lastmod>2025-07-11T12:44:02+00:00</lastmod>
-  <priority>1.00</priority>
+	<loc>https://tool-two-omega.vercel.app/</loc>
+	<lastmod>2025-07-11T18:35:57+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://tool-two-omega.vercel.app/index.html</loc>
-  <lastmod>2025-07-11T12:44:03+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://tool-two-omega.vercel.app/index.html</loc>
+	<lastmod>2025-07-11T18:35:57+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://tool-two-omega.vercel.app/img_tools.html</loc>
-  <lastmod>2025-07-11T12:44:03+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://tool-two-omega.vercel.app/img_tools.html</loc>
+	<lastmod>2025-07-11T18:35:57+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://tool-two-omega.vercel.app/pdf_tools.html</loc>
-  <lastmod>2025-07-11T12:44:03+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://tool-two-omega.vercel.app/pdf_tools.html</loc>
+	<lastmod>2025-07-11T18:35:57+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://tool-two-omega.vercel.app/about_us.html</loc>
-  <lastmod>2025-07-11T12:44:04+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://tool-two-omega.vercel.app/about_us.html</loc>
+	<lastmod>2025-07-11T18:35:57+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://tool-two-omega.vercel.app/img_com.html</loc>
-  <lastmod>2025-07-11T12:44:04+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://tool-two-omega.vercel.app/img_com.html</loc>
+	<lastmod>2025-07-11T18:35:57+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://tool-two-omega.vercel.app/img_convert.html</loc>
-  <lastmod>2025-07-11T12:44:04+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://tool-two-omega.vercel.app/img_convert.html</loc>
+	<lastmod>2025-07-11T18:35:57+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://tool-two-omega.vercel.app/img_resize.html</loc>
-  <lastmod>2025-07-11T12:44:04+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://tool-two-omega.vercel.app/img_resize.html</loc>
+	<lastmod>2025-07-11T18:35:57+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://tool-two-omega.vercel.app/pdf_comp.html</loc>
-  <lastmod>2025-07-11T12:44:04+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://tool-two-omega.vercel.app/pdf_comp.html</loc>
+	<lastmod>2025-07-11T18:35:57+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://tool-two-omega.vercel.app/pdf_merge.html</loc>
-  <lastmod>2025-07-11T12:44:05+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://tool-two-omega.vercel.app/pdf_merge.html</loc>
+	<lastmod>2025-07-11T18:35:57+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://tool-two-omega.vercel.app/pdf_split.html</loc>
-  <lastmod>2025-07-11T12:44:05+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://tool-two-omega.vercel.app/pdf_split.html</loc>
+	<lastmod>2025-07-11T18:35:57+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://tool-two-omega.vercel.app/imgtopgf.html</loc>
-  <lastmod>2025-07-11T12:44:05+00:00</lastmod>
-  <priority>0.64</priority>
+	<loc>https://tool-two-omega.vercel.app/imgtopgf.html</loc>
+	<lastmod>2025-07-11T18:35:59+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://tool-two-omega.vercel.app/img_edit.html</loc>
-  <lastmod>2025-07-11T12:44:05+00:00</lastmod>
-  <priority>0.64</priority>
+	<loc>https://tool-two-omega.vercel.app/img_edit.html</loc>
+	<lastmod>2025-07-11T18:35:59+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://tool-two-omega.vercel.app/pdftoimg.html</loc>
-  <lastmod>2025-07-11T12:44:05+00:00</lastmod>
-  <priority>0.64</priority>
+	<loc>https://tool-two-omega.vercel.app/pdftoimg.html</loc>
+	<lastmod>2025-07-11T18:35:59+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://tool-two-omega.vercel.app/imgtozip.html</loc>
-  <lastmod>2025-07-11T12:44:05+00:00</lastmod>
-  <priority>0.64</priority>
+	<loc>https://tool-two-omega.vercel.app/imgtozip.html</loc>
+	<lastmod>2025-07-11T18:35:59+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://tool-two-omega.vercel.app/watermark.html</loc>
-  <lastmod>2025-07-11T12:44:05+00:00</lastmod>
-  <priority>0.64</priority>
+	<loc>https://tool-two-omega.vercel.app/watermark.html</loc>
+	<lastmod>2025-07-11T18:35:59+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://tool-two-omega.vercel.app/pdfocr.html</loc>
-  <lastmod>2025-07-11T12:44:06+00:00</lastmod>
-  <priority>0.64</priority>
+	<loc>https://tool-two-omega.vercel.app/pdfocr.html</loc>
+	<lastmod>2025-07-11T18:35:59+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://tool-two-omega.vercel.app/htmltopdf.html</loc>
-  <lastmod>2025-07-11T12:44:06+00:00</lastmod>
-  <priority>0.64</priority>
+	<loc>https://tool-two-omega.vercel.app/htmltopdf.html</loc>
+	<lastmod>2025-07-11T18:35:59+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
-
-
 </urlset>
